@@ -17,7 +17,50 @@ namespace HotelSelect.Dao.impl
 
         public User FindUserById(long id)
         {
-            throw new NotImplementedException();
+            var sqlFindUserById = "SELECT * FROM users WHERE id = @id";
+            var findUserByIdCommand = new SqlCommand(sqlFindUserById, dbConnector);
+            findUserByIdCommand.Parameters.Add("@id", System.Data.SqlDbType.BigInt).Value = id;
+
+            try
+            {
+                dbConnector.Open();
+                SqlDataReader sqlDataReader = findUserByIdCommand.ExecuteReader();
+
+                if (sqlDataReader.HasRows)
+                {
+                    User findedUser = new User { FullName = new FullName() };
+                    while (sqlDataReader.Read())
+                    {
+                        findedUser.Id = (long)sqlDataReader.GetValue(0);
+                        findedUser.CountryId = (int)sqlDataReader.GetValue(1);
+                        findedUser.CityId = (long)sqlDataReader.GetValue(2);
+                        findedUser.FullName = new FullName
+                        {
+                            Surname = (string)sqlDataReader.GetValue(3),
+                            Name = (string)sqlDataReader.GetValue(4),
+                            Patronymic = (string)sqlDataReader.GetValue(5)
+                        };
+                        findedUser.DateOfBirth = (DateTime)sqlDataReader.GetValue(6);
+                        findedUser.Login = (string)sqlDataReader.GetValue(7);
+                        findedUser.Password = (string)sqlDataReader.GetValue(8);
+                        findedUser.PhoneNumber = (string)sqlDataReader.GetValue(9);
+                        findedUser.Email = (string)sqlDataReader.GetValue(10);
+                    }
+
+                    return findedUser;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+
+                dbConnector.Close();
+
+            }
+            return new User();
         }
 
         public User FindUserByLoginAndPassword(User user)

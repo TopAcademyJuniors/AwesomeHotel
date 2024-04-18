@@ -43,6 +43,24 @@ namespace HotelSelect
             };
 
             userService.SaveUser(newUser);
+
+            if (IsValidEmail(newUser.Email))
+                MessageBox.Show("Успешная почта");
+            else
+                MessageBox.Show("Неверная почта");
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mail = new System.Net.Mail.MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
