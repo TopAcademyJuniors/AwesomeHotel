@@ -158,6 +158,7 @@
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
+    <Content Include="Resources\Images\Rezerv.png" />
     <Content Include="Resources\Images\translucent-image.png" />
     <Content Include="Resources\Images\zero-trust.jpg" />
   </ItemGroup>
