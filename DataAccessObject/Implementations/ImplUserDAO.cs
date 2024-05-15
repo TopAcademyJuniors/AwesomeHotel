@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using HotelSelect.Dao.repository;
 using System.Data;
+using System.Runtime.InteropServices;
+
 
 namespace HotelSelect.Dao.impl
 {
@@ -19,45 +21,63 @@ namespace HotelSelect.Dao.impl
 
         public User FindUserByLoginAndPassword(User user)
         {
-            sqlConnection.Open();
+            
 
-            string sqlQueryFindUser = "SELECT * FROM Users WHERE login = @login AND password = @password";
+            try
+            {
+                sqlConnection.Open();
+                string sqlQueryFindUser = "SELECT * FROM Users WHERE login = @login";
 
-            SqlCommand sqlCommandFindUser = new SqlCommand(sqlQueryFindUser, sqlConnection);
+                SqlCommand sqlCommandFindUser = new SqlCommand(sqlQueryFindUser, sqlConnection);
 
-            sqlCommandFindUser.Parameters.Add("@login", System.Data.SqlDbType.VarChar).Value = user.Login;
-            sqlCommandFindUser.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = user.Password;
+                sqlCommandFindUser.Parameters.Add("@login", System.Data.SqlDbType.VarChar).Value = user.Login;
+              //  sqlCommandFindUser.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = user.Password;
 
-            SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
+                SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
 
-            if (sqlDataReader.HasRows) {
+
+
+                if (!sqlDataReader.HasRows)
+                {
+                   return null; 
+                }
 
                 User findedUser = new User();
 
                 while (sqlDataReader.Read())
                 {
-                    findedUser.Id          = (long)sqlDataReader.GetValue(0);
-                    findedUser.CountryId   = (int)sqlDataReader.GetValue(1);
-                    findedUser.CityId      = (long)sqlDataReader.GetValue(2);
-                    findedUser.FullName    = new FullName
+                    findedUser.Id = (long)sqlDataReader.GetValue(0);
+                    findedUser.CountryId = (int)sqlDataReader.GetValue(1);
+                    findedUser.CityId = (long)sqlDataReader.GetValue(2);
+                    findedUser.FullName = new FullName
                     {
-                        Surname            = (string)sqlDataReader.GetValue(3),
-                        Name               = (string)sqlDataReader.GetValue(4),
-                        Patronymic         = (string)sqlDataReader.GetValue(5)
+                        Surname = (string)sqlDataReader.GetValue(3),
+                        Name = (string)sqlDataReader.GetValue(4),
+                        Patronymic = (string)sqlDataReader.GetValue(5)
                     };
                     findedUser.DateOfBirth = (DateTime)sqlDataReader.GetValue(6);
-                    findedUser.Login       = (string)sqlDataReader.GetValue(7);
-                    findedUser.Password    = (string)sqlDataReader.GetValue(8);
+                    findedUser.Login = (string)sqlDataReader.GetValue(7);
+                    findedUser.Password = (string)sqlDataReader.GetValue(8);
                     findedUser.PhoneNumber = (string)sqlDataReader.GetValue(9);
-                    findedUser.Email       = (string)sqlDataReader.GetValue(10);
+                    findedUser.Email = (string)sqlDataReader.GetValue(10);
                 }
 
-                sqlConnection.Close();
+                if (!BCrypt.Net.BCrypt.EnhancedVerify(user.Password, findedUser.Password))
+                {
+                    return null;
+                }
+
+                
                 return findedUser;
+
             }
-            else {
-                throw new Exception();
-            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }finally { sqlConnection.Close(); }
+
+           
         }
 
         public void SaveUser(User user)
@@ -72,7 +92,7 @@ namespace HotelSelect.Dao.impl
                                           "@password, @phone_number, @email)";
 
                 SqlCommand sqlCommandSaveUser = new SqlCommand(sqlQuerySaveUser, sqlConnection);
-
+                user.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(user.Password);
                 sqlCommandSaveUser.Parameters.Add("@country_id", System.Data.SqlDbType.Int).Value = user.CountryId;
                 sqlCommandSaveUser.Parameters.Add("@city_id", System.Data.SqlDbType.BigInt).Value = user.CityId;
                 sqlCommandSaveUser.Parameters.Add("@surname", System.Data.SqlDbType.VarChar).Value = user.FullName.Surname;

@@ -12,7 +12,7 @@ namespace HotelSelect.Security
         {
             User tryAuthUser = implUserDAO.FindUserByLoginAndPassword(user);
 
-            if (tryAuthUser.Id != 0) {
+            if (tryAuthUser != null) {
                 UserSession.StartSession(tryAuthUser);
 
                 return true;
