@@ -45,10 +45,13 @@ namespace HotelSelect
             newUser.DateOfBirth = DateOfBirth.Value;
             newUser.Login = Login.Text;
             newUser.Password = Password.Text;
+
+            //todo: поправить как буду страны
             newUser.CountryId = 1;
             newUser.CityId = 1;
 
-            if (!facadeRegistrUser.CheckExistUser(newUser)) {
+            if (facadeRegistrUser.CheckExistUser(newUser))
+            {
                 MessageBox.Show("User already exist");
                 return;
             }

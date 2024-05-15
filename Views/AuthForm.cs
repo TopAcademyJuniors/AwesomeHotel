@@ -1,16 +1,23 @@
-﻿using HotelSelect.DataAccessObject.Services;
+﻿using HotelSelect.Dao.impl;
+using HotelSelect.DataAccessObject.Services;
 using HotelSelect.Entity;
+using HotelSelect.Proxy;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelSelect
 {
     public partial class AuthForm : Form
     {
+        private UserDaoProxy UserDaoProxy = new UserDaoProxy();
         public AuthForm()
         {
             InitializeComponent();
         }
+
+
 
         private void Registration_Click(object sender, EventArgs e)
         {
@@ -22,22 +29,30 @@ namespace HotelSelect
 
         private void authBtn_Click(object sender, EventArgs e)
         {
-            if (!UniversalMethodsCheckIsEmptyAndSelected.CheckStringsIsNullOfEmpty(login.Text, password.Text)) {
+
+
+            if (!UniversalMethodsCheckIsEmptyAndSelected.CheckStringsIsNullOfEmpty(login.Text, password.Text))
+            {
                 return;
             }
 
             User user = new User { Login = login.Text, Password = password.Text };
 
-            VerificationUserForAuth verificationUserForAuth = new VerificationUserForAuth();
 
-            if (verificationUserForAuth.CheckExistUser(user)) {
-                MessageBox.Show("This user does't exist");
-                return;
-            }
+            //TODO: Перенесети в регистрацию
 
+
+            //VerificationUserForAuth verificationUserForAuth = new VerificationUserForAuth();
+            //if (verificationUserForAuth.CheckExistUser(user))
+            //{
+            //    MessageBox.Show("This user does't exist");
+            //    return;
+            //}
+            //
             Security.Security sec = new Security.Security();
 
-            if (sec.AuthUser(user)) {
+            if (sec.AuthUser(user))
+            {
                 PersonalAccount personalAccount = new PersonalAccount();
                 personalAccount.ShowDialog();
             }
