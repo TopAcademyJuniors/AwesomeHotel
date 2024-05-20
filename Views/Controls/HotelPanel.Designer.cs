@@ -71,8 +71,9 @@
             this.viewBtn.TabIndex = 3;
             this.viewBtn.Text = "button1";
             this.viewBtn.UseVisualStyleBackColor = true;
+            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
             // 
-            // UserControl1
+            // HotelPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +81,7 @@
             this.Controls.Add(this.hotelDescription);
             this.Controls.Add(this.hotelName);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "UserControl1";
+            this.Name = "HotelPanel";
             this.Size = new System.Drawing.Size(587, 205);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

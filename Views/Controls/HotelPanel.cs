@@ -16,5 +16,10 @@ namespace HotelSelect.Views.Controls
         {
             InitializeComponent();
         }
+
+        private void viewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
