@@ -30,22 +30,18 @@ namespace HotelSelect
 
             SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
             sqlConnection.Open();
-            string sqlQueryFindUser = "select Countries.name, Cities.name, Cities_countries.country_id," +
-                " Cities_countries.city_id from Cities_countries " +
-                "join Countries on Countries.id = Cities_countries.country_id" +
-                "join Cities on Cities.id = Cities_countries.city_id";
+            string sqlQueryFindUser = "select * from Countries";
             SqlCommand sqlCommandFindUser = new SqlCommand(sqlQueryFindUser, sqlConnection);
             SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
             if (sqlDataReader.HasRows)
             {
                 while (sqlDataReader.Read())
                 {
-                    mas_con.Add((string)sqlDataReader.GetValue(0));
-                    mas_city.Add((string)sqlDataReader.GetValue(1));
-                    mas_id_city.Add((int)sqlDataReader.GetValue(2));
-                    mas_id_con.Add((int)(sqlDataReader.GetValue(3)));
+                    mas_con.Add((string)sqlDataReader.GetValue(1));
+                    mas_id_con.Add((int)(sqlDataReader.GetValue(0)));
                 }
             }
+            sqlConnection.Close();
 
             foreach (string con in mas_con)
             {
@@ -206,6 +202,7 @@ namespace HotelSelect
         {
             if (comboBox1.SelectedItem != null)
             {
+               
                 foreach (string city in mas_city)
                 {
                     comboBox2.Items.Add(city);
