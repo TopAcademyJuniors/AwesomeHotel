@@ -133,8 +133,8 @@ namespace HotelSelect
 
         private void AddHotel_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != ""
-                && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+            if (textBox1.Text != "" && comboBox1.SelectedItem != null && comboBox2.SelectedItem != null
+                            && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "")
             {
                 if (textBox1.BackColor == Color.Red)
                 {
@@ -145,12 +145,25 @@ namespace HotelSelect
                     textBox5.BackColor = Color.White;
                     textBox6.BackColor = Color.White;
                 }
-
-                Hotel hotel = new Hotel(textBox1.Text,
-                    Convert.ToInt32(textBox2.Text),
-                    Convert.ToInt32(textBox3.Text),
-                    Convert.ToInt32(textBox4.Text),
-                    textBox5.Text, textBox6.Text);
+                
+                int id_con = 0;
+                int id_city = 0;
+                for (int i = 0; i < mas_con.Count; i++)
+                {
+                    if (mas_con[i] == comboBox1.SelectedItem)
+                    {
+                        id_con = i;
+                    }
+                }
+                for (int i = 0; i < mas_city.Count; i++)
+                {
+                    if (mas_city[i] == comboBox2.SelectedItem)
+                    {
+                        id_city = i;
+                    }
+                }
+                Hotel hotel = new Hotel(textBox1.Text, id_con, id_city,
+                    Convert.ToInt32(textBox4.Text), textBox5.Text, textBox6.Text, textBox7.Text);
             }
             else
             {
@@ -161,6 +174,7 @@ namespace HotelSelect
                 textBox5.BackColor = Color.Red;
                 textBox6.BackColor = Color.Red;
             }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -202,6 +216,29 @@ namespace HotelSelect
         {
             if (comboBox1.SelectedItem != null)
             {
+                if (comboBox2.Items != null)
+                {
+                    comboBox2.Items.Clear();
+                }
+                string zapros = "select Cities.id, Cities.name from Cities_countries" +
+                    "join Countries on Cities_countries.country_id = Countries.id " +
+                    "join Cities on Cities_countries.city_id = Cities.id" +
+                    "where Cities_countries.country_id = 1";
+
+                SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
+                sqlConnection.Open();
+                SqlCommand sqlCommandFindUser = new SqlCommand(zapros, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        mas_id_city.Add((int)(sqlDataReader.GetValue(0)));
+                        mas_city.Add((string)sqlDataReader.GetValue(1));
+                    }
+                }
+                sqlConnection.Close();
+
                 foreach (string city in mas_city)
                 {
                     comboBox2.Items.Add(city);
