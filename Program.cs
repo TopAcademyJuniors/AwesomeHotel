@@ -20,10 +20,6 @@ namespace HotelSelect
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AuthForm());
-            //MessageBox.Show(u.Login);
-           
-
-           
 
         }
 
