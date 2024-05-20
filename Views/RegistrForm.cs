@@ -50,11 +50,11 @@ namespace HotelSelect
             newUser.CountryId = 1;
             newUser.CityId = 1;
 
-            if (facadeRegistrUser.CheckExistUser(newUser))
-            {
-                MessageBox.Show("User already exist");
-                return;
-            }
+            //if (facadeRegistrUser.CheckExistUser(newUser))
+            //{
+            //    MessageBox.Show("User already exist");
+            //    return;
+            //}
 
             facadeRegistrUser.RegistrationUser(newUser);
 
