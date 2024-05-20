@@ -202,7 +202,6 @@ namespace HotelSelect
         {
             if (comboBox1.SelectedItem != null)
             {
-               
                 foreach (string city in mas_city)
                 {
                     comboBox2.Items.Add(city);
