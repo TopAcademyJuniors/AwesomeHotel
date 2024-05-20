@@ -80,6 +80,7 @@
     <Compile Include="DataAccessObject\Interfaces\IServiceDAO.cs" />
     <Compile Include="DataAccessObject\Services\UniversalMethodsCheckIsEmptyAndSelected.cs" />
     <Compile Include="DataAccessObject\Services\VerificationUserForAuth.cs" />
+    <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Proxy\UserDaoProxy.cs" />
     <Compile Include="Views\PersonalAccount.cs">
       <SubType>Form</SubType>
