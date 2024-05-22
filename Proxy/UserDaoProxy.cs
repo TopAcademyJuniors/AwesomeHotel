@@ -18,9 +18,11 @@ namespace HotelSelect.Proxy
 
         }
 
-        public User FindUserById(long id)
+        public async Task<User> FindUserById(long id)
         {
-            throw new NotImplementedException();
+            User u = null;
+            await Task.Run(async () => u = userDAO.FindUserById(id));
+            return u;
         }
 
         public async Task<User> FindUserByLoginAndPassword(User user)
