@@ -134,7 +134,7 @@ namespace HotelSelect
         private void AddHotel_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "" && comboBox1.SelectedItem != null && comboBox2.SelectedItem != null
-                            && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "")
+                && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "" && textBox7.Text != "")
             {
                 if (textBox1.BackColor == Color.Red)
                 {
@@ -148,6 +148,7 @@ namespace HotelSelect
                 
                 int id_con = 0;
                 int id_city = 0;
+
                 for (int i = 0; i < mas_con.Count; i++)
                 {
                     if (mas_con[i] == comboBox1.SelectedItem)
@@ -155,6 +156,7 @@ namespace HotelSelect
                         id_con = i;
                     }
                 }
+
                 for (int i = 0; i < mas_city.Count; i++)
                 {
                     if (mas_city[i] == comboBox2.SelectedItem)
@@ -162,9 +164,18 @@ namespace HotelSelect
                         id_city = i;
                     }
                 }
-                Hotel hotel = new Hotel(textBox1.Text, id_con, id_city,
-                    Convert.ToInt32(textBox4.Text), textBox5.Text, textBox6.Text, textBox7.Text);
+
+                Hotel hotel = new Hotel();
+
+                hotel.Name = textBox1.Text;
+                hotel.CountryId = Convert.ToInt32(textBox2.Text);
+                hotel.CityId = Convert.ToInt32(textBox3.Text);
+                hotel.Stars = Convert.ToInt32(textBox4.Text);
+                hotel.Adress = textBox5.Text;
+                hotel.PhoneNumber = textBox6.Text;
+                hotel.Description = textBox7.Text;
             }
+
             else
             {
                 textBox1.BackColor = Color.Red;
