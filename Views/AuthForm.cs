@@ -1,8 +1,10 @@
 ﻿using HotelSelect.Dao.impl;
 using HotelSelect.DataAccessObject.Services;
 using HotelSelect.Entity;
+using HotelSelect.Mappers;
 using HotelSelect.Proxy;
 using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +14,24 @@ namespace HotelSelect
     public partial class AuthForm : Form
     {
         private UserDaoProxy UserDaoProxy = new UserDaoProxy();
+        private UserMapper userMapper = new UserMapper();
         public AuthForm()
         {
             InitializeComponent();
+
+
+            if(File.Exists("Session.s"))
+            {
+                using (StreamReader sr = new StreamReader("session.s"))
+                {
+                    string json = sr.ReadToEnd();
+                    User savedUser = userMapper.MapJsonToUser(json);
+
+                    this.TryAuthAndShowPersonalForm(savedUser);
+                }
+            }
+
+
         }
 
 
@@ -29,7 +46,7 @@ namespace HotelSelect
 
         private void authBtn_Click(object sender, EventArgs e)
         {
-
+            
 
             if (!UniversalMethodsCheckIsEmptyAndSelected.CheckStringsIsNullOfEmpty(login.Text, password.Text))
             {
@@ -49,13 +66,9 @@ namespace HotelSelect
             //    return;
             //}
             //
-            Security.Security sec = new Security.Security();
 
-            if (sec.AuthUser(user))
-            {
-                PersonalAccount personalAccount = new PersonalAccount();
-                personalAccount.ShowDialog();
-            }
+            this.TryAuthAndShowPersonalForm(user);
+
         }
 
         private void login_TextChanged(object sender, EventArgs e)
@@ -93,6 +106,30 @@ namespace HotelSelect
             if (password.PasswordChar == '*') {
                 button2.BringToFront();
                 password.PasswordChar = '\0';
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TryAuthAndShowPersonalForm(User user)
+        {
+            Security.Security sec = new Security.Security();
+
+
+
+            if (sec.AuthUser(user))
+            {
+                PersonalAccount personalAccount = new PersonalAccount();
+
+                if (saveAuthSession.Checked)
+                {
+                    userMapper.MapUserToJsonAndSave(user);
+                }
+
+                personalAccount.ShowDialog();
             }
         }
     }

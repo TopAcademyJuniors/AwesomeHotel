@@ -16,13 +16,55 @@ namespace HotelSelect.Dao.impl
 
         public User FindUserById(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlConnection.Open();
+                string sqlQueryFindUserById = "SELECT * FROM Users WHERE id = @id";
+
+                SqlCommand sqlCommandFindUserById = new SqlCommand(sqlQueryFindUserById, sqlConnection);
+
+                sqlCommandFindUserById.Parameters.Add("@id", System.Data.SqlDbType.BigInt).Value = id;
+
+                SqlDataReader sqlDataReader = sqlCommandFindUserById.ExecuteReader();
+
+                if (!sqlDataReader.HasRows)
+                {
+                    return null;
+                }
+
+                User findedUser = new User();
+
+                while (sqlDataReader.Read())
+                {
+                    findedUser.Id = (long)sqlDataReader.GetValue(0);
+                    findedUser.CountryId = (int)sqlDataReader.GetValue(1);
+                    findedUser.CityId = (long)sqlDataReader.GetValue(2);
+                    findedUser.FullName = new FullName
+                    {
+                        Surname = (string)sqlDataReader.GetValue(3),
+                        Name = (string)sqlDataReader.GetValue(4),
+                        Patronymic = (string)sqlDataReader.GetValue(5)
+                    };
+                    findedUser.DateOfBirth = (DateTime)sqlDataReader.GetValue(6);
+                    findedUser.Login = (string)sqlDataReader.GetValue(7);
+                    findedUser.Password = (string)sqlDataReader.GetValue(8);
+                    findedUser.PhoneNumber = (string)sqlDataReader.GetValue(9);
+                    findedUser.Email = (string)sqlDataReader.GetValue(10);
+                }
+
+                return findedUser;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+            finally { sqlConnection.Close(); }
         }
 
         public User FindUserByLoginAndPassword(User user)
         {
-            
-
             try
             {
                 sqlConnection.Open();
@@ -34,8 +76,6 @@ namespace HotelSelect.Dao.impl
               //  sqlCommandFindUser.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = user.Password;
 
                 SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
-
-
 
                 if (!sqlDataReader.HasRows)
                 {
