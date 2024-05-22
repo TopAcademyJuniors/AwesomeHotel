@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SerchHotelButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // SerchHotelButton
+            // 
+            this.SerchHotelButton.Location = new System.Drawing.Point(12, 12);
+            this.SerchHotelButton.Name = "SerchHotelButton";
+            this.SerchHotelButton.Size = new System.Drawing.Size(97, 42);
+            this.SerchHotelButton.TabIndex = 0;
+            this.SerchHotelButton.Text = "Поиск отелей";
+            this.SerchHotelButton.UseVisualStyleBackColor = true;
+            this.SerchHotelButton.Click += new System.EventHandler(this.SerchHotelButton_Click);
+            // 
+            // PersonalAccount
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SerchHotelButton);
+            this.Name = "PersonalAccount";
             this.Text = "PersonalAccount";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button SerchHotelButton;
     }
 }
