@@ -21,7 +21,7 @@ namespace HotelSelect.Mappers
             return JsonSerializer.Deserialize<User>(userJson); 
         }
 
-        public string MapUserToJsonAndSave(User user)
+        public void MapUserToJsonAndSave(User user)
         {
             string jsonUser = JsonSerializer.Serialize(user);
 
@@ -29,9 +29,6 @@ namespace HotelSelect.Mappers
             {
                 sw.WriteLine(jsonUser);
             }
-
-            
-            return null;
         }
 
 

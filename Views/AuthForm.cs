@@ -120,8 +120,6 @@ namespace HotelSelect
 
 
 
-
-
             if (sec.AuthUser(user))
             {
                 PersonalAccount personalAccount = new PersonalAccount();
