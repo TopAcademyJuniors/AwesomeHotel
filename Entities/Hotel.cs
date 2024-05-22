@@ -12,11 +12,11 @@ namespace HotelSelect.Entities
         public Hotel(string name, int countr_id, int sity_id, int stars, string adress, string phone_number, string descript)
         {
             Name = name;
-            Countr_id = countr_id;
-            Sity_id = sity_id;
+            CountryId = countr_id;
+            CityId = sity_id;
             Stars = stars;
             Adress = adress;
-            Phone_number = phone_number;
+            PhoneNumber = phone_number;
             Description = descript;
         }
         public long Id { get; set; }
