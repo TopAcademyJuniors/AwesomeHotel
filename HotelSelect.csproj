@@ -150,6 +150,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\PersonalAccount.resx">
+      <DependentUpon>PersonalAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistrForm.resx">
       <DependentUpon>RegistrForm.cs</DependentUpon>
     </EmbeddedResource>
