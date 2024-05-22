@@ -9,6 +9,8 @@ namespace HotelSelect.Entities
 {
     internal class Hotel
     {
+        public Hotel() { }
+
         public Hotel(string name, int countr_id, int sity_id, int stars, string adress, string phone_number, string descript)
         {
             Name = name;
