@@ -36,6 +36,7 @@
             this.Registration = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.saveAuthSession = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // login
@@ -61,7 +62,7 @@
             // 
             this.authBtn.BackColor = System.Drawing.Color.Teal;
             this.authBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authBtn.Location = new System.Drawing.Point(128, 230);
+            this.authBtn.Location = new System.Drawing.Point(218, 324);
             this.authBtn.Name = "authBtn";
             this.authBtn.Size = new System.Drawing.Size(143, 41);
             this.authBtn.TabIndex = 2;
@@ -97,7 +98,7 @@
             // 
             this.Registration.BackColor = System.Drawing.Color.Teal;
             this.Registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Registration.Location = new System.Drawing.Point(128, 298);
+            this.Registration.Location = new System.Drawing.Point(59, 324);
             this.Registration.Name = "Registration";
             this.Registration.Size = new System.Drawing.Size(143, 41);
             this.Registration.TabIndex = 5;
@@ -131,12 +132,24 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // saveAuthSession
+            // 
+            this.saveAuthSession.AutoSize = true;
+            this.saveAuthSession.Location = new System.Drawing.Point(97, 219);
+            this.saveAuthSession.Name = "saveAuthSession";
+            this.saveAuthSession.Size = new System.Drawing.Size(108, 17);
+            this.saveAuthSession.TabIndex = 8;
+            this.saveAuthSession.Text = "Запомнить вход";
+            this.saveAuthSession.UseVisualStyleBackColor = true;
+            this.saveAuthSession.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // AuthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(420, 407);
+            this.Controls.Add(this.saveAuthSession);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Registration);
@@ -164,6 +177,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox saveAuthSession;
     }
 }
 
