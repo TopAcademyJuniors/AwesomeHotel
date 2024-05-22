@@ -74,31 +74,33 @@ namespace HotelSelect.DataAccessObject.Implementations
 
                 User findedHotel = new User();
 
+                //TODO: переделать с user на hotel
+
                 while (sqlDataReader.Read())
                 {
-                    findedHotel.Id = (long)sqlDataReader.GetValue(0);
-                    findedHotel.CountryId = (int)sqlDataReader.GetValue(1);
-                    findedHotel.CityId = (long)sqlDataReader.GetValue(2);
-                    findedHotel.FullName = new FullName
-                    {
-                        Surname = (string)sqlDataReader.GetValue(3),
-                        Name = (string)sqlDataReader.GetValue(4),
-                        Patronymic = (string)sqlDataReader.GetValue(5)
-                    };
-                    findedHotel.DateOfBirth = (DateTime)sqlDataReader.GetValue(6);
-                    findedHotel.Login = (string)sqlDataReader.GetValue(7);
-                    findedHotel.Password = (string)sqlDataReader.GetValue(8);
-                    findedHotel.PhoneNumber = (string)sqlDataReader.GetValue(9);
-                    findedHotel.Email = (string)sqlDataReader.GetValue(10);
+                //    findedHotel.Id = (long)sqlDataReader.GetValue(0);
+                //    findedHotel.CountryId = (int)sqlDataReader.GetValue(1);
+                //    findedHotel.CityId = (long)sqlDataReader.GetValue(2);
+                //    findedHotel.FullName = new FullName
+                //    {
+                //        Surname = (string)sqlDataReader.GetValue(3),
+                //        Name = (string)sqlDataReader.GetValue(4),
+                //        Patronymic = (string)sqlDataReader.GetValue(5)
+                //    };
+                //    findedHotel.DateOfBirth = (DateTime)sqlDataReader.GetValue(6);
+                //    findedHotel.Login = (string)sqlDataReader.GetValue(7);
+                //    findedHotel.Password = (string)sqlDataReader.GetValue(8);
+                //    findedHotel.PhoneNumber = (string)sqlDataReader.GetValue(9);
+                //    findedHotel.Email = (string)sqlDataReader.GetValue(10);
+                //}
+
+                //if (!BCrypt.Net.BCrypt.EnhancedVerify(hotel.Password, findedHotel.Password))
+                //{
+                //    return null;
                 }
 
-                if (!BCrypt.Net.BCrypt.EnhancedVerify(user.Password, findedHotel.Password))
-                {
-                    return null;
-                }
 
-
-                return findedHotel;
+                return null;
 
             }
             catch (Exception e)
