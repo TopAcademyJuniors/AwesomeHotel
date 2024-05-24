@@ -132,5 +132,10 @@ namespace HotelSelect
                 personalAccount.ShowDialog();
             }
         }
+
+        private void AuthForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -93,6 +93,16 @@ namespace HotelSelect.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RezHotel {
+            get {
+                object obj = ResourceManager.GetObject("RezHotel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap translucent_image {
             get {
                 object obj = ResourceManager.GetObject("translucent-image", resourceCulture);

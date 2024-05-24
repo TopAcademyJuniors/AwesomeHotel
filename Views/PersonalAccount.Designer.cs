@@ -33,9 +33,10 @@
             // 
             // SerchHotelButton
             // 
-            this.SerchHotelButton.Location = new System.Drawing.Point(12, 12);
+            this.SerchHotelButton.Location = new System.Drawing.Point(16, 15);
+            this.SerchHotelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SerchHotelButton.Name = "SerchHotelButton";
-            this.SerchHotelButton.Size = new System.Drawing.Size(97, 42);
+            this.SerchHotelButton.Size = new System.Drawing.Size(129, 52);
             this.SerchHotelButton.TabIndex = 0;
             this.SerchHotelButton.Text = "Поиск отелей";
             this.SerchHotelButton.UseVisualStyleBackColor = true;
@@ -43,11 +44,13 @@
             // 
             // PersonalAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.SerchHotelButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PersonalAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonalAccount";
             this.ResumeLayout(false);
 
