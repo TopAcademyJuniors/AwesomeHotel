@@ -173,7 +173,7 @@ namespace HotelSelect
 
         private void Patronymic_Enter(object sender, EventArgs e)
         {
-            if (Patronymic.Text == "Фамилия")
+            if (Patronymic.Text == "Отчество")
             {
                 Patronymic.Text = "";
                 Patronymic.ForeColor = SystemColors.WindowText;
@@ -186,7 +186,7 @@ namespace HotelSelect
             if (String.IsNullOrWhiteSpace(Patronymic.Text))
             {
 
-                Patronymic.Text = "Фамилия";
+                Patronymic.Text = "Отчество";
                 Patronymic.ForeColor = SystemColors.Window;
                 Patronymic.BackColor = SystemColors.WindowFrame;
 
