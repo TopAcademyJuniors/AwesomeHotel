@@ -30,15 +30,12 @@ namespace HotelSelect
                     this.TryAuthAndShowPersonalForm(savedUser);
                 }
             }
-
-
         }
-
-
 
         private void Registration_Click(object sender, EventArgs e)
         {
             RegistrForm registrationForm = new RegistrForm();
+            this.Hide();
             registrationForm.Hide();
 
             if (registrationForm.ShowDialog() == DialogResult.Cancel) { this.Show(); }
@@ -128,7 +125,7 @@ namespace HotelSelect
                 {
                     userMapper.MapUserToJsonAndSave(user);
                 }
-
+                this.Hide();
                 personalAccount.ShowDialog();
             }
         }

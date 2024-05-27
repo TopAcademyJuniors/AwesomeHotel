@@ -1,4 +1,6 @@
 ﻿using HotelSelect.Dao.repository;
+using HotelSelect.DataAccessObject.Implementations;
+using HotelSelect.DataAccessObject.Interfaces;
 using HotelSelect.Entities;
 using HotelSelect.Entity;
 using System;
@@ -16,10 +18,23 @@ namespace HotelSelect
 {
     public partial class HotelRoomReservation : Form
     {
+        private ICountryDAO countryDAO;
+        private ICityDAO cityDAO;
+
         public HotelRoomReservation()
         {
             InitializeComponent();
 
+
+            countryDAO = new ImplCountryDAO();
+            cityDAO = new ImplCityDao();
+
+            List<Country> countries = countryDAO.GetAllCountries();
+
+            foreach (var item in countries)
+            {
+                ComBoxCountry.Items.Add(item.Name);
+            }
 
             //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
             //sqlConnection.Open();
@@ -150,9 +165,21 @@ namespace HotelSelect
 
         }
 
-        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
         {
+            List < City > cities = cityDAO.GetAllCitiesByCountryId(ComBoxCountry.Text);
+
+            foreach (var item in cities)
+            {
+                ComBoxCity.Items.Add(item.Name);
+            }
 
         }
+        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+
+       
     }
 }
