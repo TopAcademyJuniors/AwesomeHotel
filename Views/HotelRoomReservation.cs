@@ -173,6 +173,13 @@ namespace HotelSelect
             {
                 ComBoxCity.Items.Add(item.Name);
             }
+
         }
+        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+
+       
     }
 }

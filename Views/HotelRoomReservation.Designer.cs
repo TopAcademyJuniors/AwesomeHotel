@@ -298,6 +298,9 @@
             this.ComBoxCountry.Size = new System.Drawing.Size(172, 28);
             this.ComBoxCountry.TabIndex = 20;
             this.ComBoxCountry.Text = "Страна";
+
+            this.ComBoxCountry.SelectedIndexChanged += new System.EventHandler(this.ComBoxCountry_SelectedIndexChanged);
+
             this.ComBoxCountry.SelectedValueChanged += new System.EventHandler(this.ComBoxCountry_SelectedValueChanged);
             this.ComBoxCountry.Enter += new System.EventHandler(this.ComBoxCountry_Enter);
             this.ComBoxCountry.Leave += new System.EventHandler(this.ComBoxCountry_Leave);
