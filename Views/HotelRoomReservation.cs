@@ -149,5 +149,10 @@ namespace HotelSelect
             }
 
         }
+
+        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
