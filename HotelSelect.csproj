@@ -93,6 +93,8 @@
   <ItemGroup>
     <Compile Include="Connections\ConnectorDataBaseMicrosoftSQL.cs" />
     <Compile Include="DataAccessObject\Implementations\ImplHotelDAO.cs" />
+    <Compile Include="DataAccessObject\Implementations\ImplRezervHotelDAO.cs" />
+    <Compile Include="DataAccessObject\Interfaces\IRezervHotelDAO.cs" />
     <Compile Include="DataAccessObject\Interfaces\IServiceDAO.cs" />
     <Compile Include="DataAccessObject\Services\UniversalMethodsCheckIsEmptyAndSelected.cs" />
     <Compile Include="DataAccessObject\Services\VerificationUserForAuth.cs" />
@@ -196,8 +198,10 @@
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
+    <Content Include="Resources\Images\RezHotel.png" />
     <Content Include="Resources\Images\translucent-image.png" />
     <Content Include="Resources\Images\zero-trust.jpg" />
+    <None Include="Resources\RezHotel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
