@@ -16,5 +16,13 @@ namespace HotelSelect
         {
             InitializeComponent();
         }
+
+        private void SerchHotelButton_Click(object sender, EventArgs e)
+        {
+            HotelRoomReservation SerchHote =new HotelRoomReservation ();
+            this.Hide();
+            SerchHote.ShowDialog();
+           
+        }
     }
 }
