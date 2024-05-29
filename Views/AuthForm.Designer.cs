@@ -42,21 +42,21 @@
             // login
             // 
             this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.login.Location = new System.Drawing.Point(129, 107);
-            this.login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.login.Location = new System.Drawing.Point(145, 134);
+            this.login.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(280, 34);
+            this.login.Size = new System.Drawing.Size(314, 39);
             this.login.TabIndex = 0;
             this.login.TextChanged += new System.EventHandler(this.login_TextChanged);
             // 
             // password
             // 
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password.Location = new System.Drawing.Point(129, 215);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password.Location = new System.Drawing.Point(145, 269);
+            this.password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(231, 34);
+            this.password.Size = new System.Drawing.Size(259, 39);
             this.password.TabIndex = 1;
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
@@ -64,10 +64,10 @@
             // 
             this.authBtn.BackColor = System.Drawing.Color.Teal;
             this.authBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authBtn.Location = new System.Drawing.Point(291, 399);
-            this.authBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.authBtn.Location = new System.Drawing.Point(327, 499);
+            this.authBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.authBtn.Name = "authBtn";
-            this.authBtn.Size = new System.Drawing.Size(191, 50);
+            this.authBtn.Size = new System.Drawing.Size(215, 62);
             this.authBtn.TabIndex = 2;
             this.authBtn.Text = "Авторизация";
             this.authBtn.UseVisualStyleBackColor = false;
@@ -79,12 +79,13 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(137, 113);
+            this.label1.Location = new System.Drawing.Point(154, 141);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 25);
+            this.label1.Size = new System.Drawing.Size(83, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Логин";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -92,10 +93,10 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(137, 222);
+            this.label2.Location = new System.Drawing.Point(154, 278);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(99, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Пароль";
             // 
@@ -103,10 +104,10 @@
             // 
             this.Registration.BackColor = System.Drawing.Color.Teal;
             this.Registration.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Registration.Location = new System.Drawing.Point(79, 399);
-            this.Registration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Registration.Location = new System.Drawing.Point(89, 499);
+            this.Registration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Registration.Name = "Registration";
-            this.Registration.Size = new System.Drawing.Size(191, 50);
+            this.Registration.Size = new System.Drawing.Size(215, 62);
             this.Registration.TabIndex = 5;
             this.Registration.Text = "Регистрация";
             this.Registration.UseVisualStyleBackColor = false;
@@ -117,10 +118,10 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::HotelSelect.Properties.Resources.eye_visible;
-            this.button3.Location = new System.Drawing.Point(367, 215);
+            this.button3.Location = new System.Drawing.Point(413, 269);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 34);
+            this.button3.Size = new System.Drawing.Size(50, 42);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -130,10 +131,10 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::HotelSelect.Properties.Resources.not_visible;
-            this.button2.Location = new System.Drawing.Point(367, 215);
+            this.button2.Location = new System.Drawing.Point(413, 269);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 34);
+            this.button2.Size = new System.Drawing.Size(50, 42);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -141,10 +142,10 @@
             // saveAuthSession
             // 
             this.saveAuthSession.AutoSize = true;
-            this.saveAuthSession.Location = new System.Drawing.Point(129, 270);
-            this.saveAuthSession.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveAuthSession.Location = new System.Drawing.Point(145, 338);
+            this.saveAuthSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveAuthSession.Name = "saveAuthSession";
-            this.saveAuthSession.Size = new System.Drawing.Size(134, 20);
+            this.saveAuthSession.Size = new System.Drawing.Size(160, 24);
             this.saveAuthSession.TabIndex = 8;
             this.saveAuthSession.Text = "Запомнить вход";
             this.saveAuthSession.UseVisualStyleBackColor = true;
@@ -152,10 +153,10 @@
             // 
             // AuthForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(560, 501);
+            this.ClientSize = new System.Drawing.Size(630, 626);
             this.Controls.Add(this.saveAuthSession);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -165,7 +166,7 @@
             this.Controls.Add(this.authBtn);
             this.Controls.Add(this.password);
             this.Controls.Add(this.login);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authorization";

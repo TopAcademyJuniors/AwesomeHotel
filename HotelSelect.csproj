@@ -114,6 +114,12 @@
     <Compile Include="Views\Controls\HotelPanel.Designer.cs">
       <DependentUpon>HotelPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Hotel card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Hotel card.Designer.cs">
+      <DependentUpon>Hotel card.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonalAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\HotelPanel.resx">
       <DependentUpon>HotelPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Hotel card.resx">
+      <DependentUpon>Hotel card.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HotelAdd.resx">
       <DependentUpon>HotelAdd.cs</DependentUpon>
