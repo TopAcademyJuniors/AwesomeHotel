@@ -108,6 +108,12 @@
     <Compile Include="DataAccessObject\Interfaces\IHotelDAO.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Proxy\UserDaoProxy.cs" />
+    <Compile Include="Views\Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Support.Designer.cs">
+      <DependentUpon>Support.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\HotelPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +167,12 @@
     </Compile>
     <Compile Include="Security\Security.cs" />
     <Compile Include="Security\UserSession.cs" />
+    <Compile Include="Views\Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Support.Designer.cs">
+      <DependentUpon>Support.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +204,9 @@
     <EmbeddedResource Include="Views\HotelRoomReservation.resx">
       <DependentUpon>HotelRoomReservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Support.resx">
+      <DependentUpon>Support.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,9 +229,22 @@
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
     <Content Include="Resources\Images\RezHotel.png" />
+    <Content Include="Resources\Images\support_image.jpg" />
     <Content Include="Resources\Images\translucent-image.png" />
     <Content Include="Resources\Images\zero-trust.jpg" />
     <None Include="Resources\RezHotel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
