@@ -61,7 +61,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::HotelSelect.Properties.Resources.RezHotel;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(773, 481);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -298,9 +298,7 @@
             this.ComBoxCountry.Size = new System.Drawing.Size(172, 28);
             this.ComBoxCountry.TabIndex = 20;
             this.ComBoxCountry.Text = "Страна";
-
             this.ComBoxCountry.SelectedIndexChanged += new System.EventHandler(this.ComBoxCountry_SelectedIndexChanged);
-
             this.ComBoxCountry.SelectedValueChanged += new System.EventHandler(this.ComBoxCountry_SelectedValueChanged);
             this.ComBoxCountry.Enter += new System.EventHandler(this.ComBoxCountry_Enter);
             this.ComBoxCountry.Leave += new System.EventHandler(this.ComBoxCountry_Leave);
