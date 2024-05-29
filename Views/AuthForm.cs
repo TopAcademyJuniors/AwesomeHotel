@@ -3,6 +3,7 @@ using HotelSelect.DataAccessObject.Services;
 using HotelSelect.Entity;
 using HotelSelect.Mappers;
 using HotelSelect.Proxy;
+using HotelSelect.Views;
 using System;
 using System.IO;
 using System.Threading;
@@ -133,6 +134,12 @@ namespace HotelSelect
         private void AuthForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Test t = new Test();
+            t.ShowDialog();
         }
     }
 }
