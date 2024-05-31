@@ -16,7 +16,7 @@ namespace HotelSelect.Views
         {
             InitializeComponent();
         }
-
+        public object imageLocation { get; private set; }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -59,7 +59,13 @@ namespace HotelSelect.Views
 
         private void HOTEL_CARD_Load(object sender, EventArgs e)
         {
+            pictureBox1.Image = Image.FromFile(@"C:\Users\Я\Downloads\166.jpg");
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = this.Controls.OfType<PictureBox>().FirstOrDefault();
+            pictureBox.ImageLocation = @"C:\Users\Я\Downloads\166.jpg";
         }
     }
 }
