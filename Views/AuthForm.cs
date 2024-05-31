@@ -19,7 +19,6 @@ namespace HotelSelect
         {
             InitializeComponent();
 
-
             if(File.Exists("Session.s"))
             {
                 using (StreamReader sr = new StreamReader("session.s"))
@@ -31,20 +30,17 @@ namespace HotelSelect
                 }
             }
         }
-
+        
         private void Registration_Click(object sender, EventArgs e)
         {
             RegistrForm registrationForm = new RegistrForm();
             this.Hide();
-            registrationForm.Hide();
-
-            if (registrationForm.ShowDialog() == DialogResult.Cancel) { this.Show(); }
+            registrationForm.ShowDialog();
+            this.Show(); 
         }
 
         private void authBtn_Click(object sender, EventArgs e)
         {
-            
-
             if (!UniversalMethodsCheckIsEmptyAndSelected.CheckStringsIsNullOfEmpty(login.Text, password.Text))
             {
                 return;
@@ -69,8 +65,7 @@ namespace HotelSelect
         }
 
         private void login_TextChanged(object sender, EventArgs e)
-        {
-            
+        {         
             if (string.IsNullOrEmpty(login.Text)) {
                 label1.Visible = true;
             }
@@ -87,7 +82,6 @@ namespace HotelSelect
             else {
                 label2.Visible = false;
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)

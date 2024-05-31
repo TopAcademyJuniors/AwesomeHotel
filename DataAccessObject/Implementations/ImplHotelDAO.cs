@@ -79,8 +79,8 @@ namespace HotelSelect.DataAccessObject.Implementations
                     findedHotel.PhoneNumber = (string)sqlDataReader.GetValue(7);
                 }
 
-                return findedHotel;
 
+                return null;
             }
             catch (Exception e)
             {
