@@ -92,14 +92,13 @@ namespace HotelSelect.DataAccessObject.Implementations
                     findedHotel.Email = (string)sqlDataReader.GetValue(10);
                 }
 
-                if (!BCrypt.Net.BCrypt.EnhancedVerify(user.Password, findedHotel.Password))
-                {
+                //if (!BCrypt.Net.BCrypt.EnhancedVerify(Hotel.Password, findedHotel.Password))
+                //{
                     return null;
-                }
+                //}
 
 
-                return findedHotel;
-
+                //return findedHotel;
             }
             catch (Exception e)
             {
