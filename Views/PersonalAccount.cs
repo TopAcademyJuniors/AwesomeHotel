@@ -1,8 +1,4 @@
-﻿using HotelSelect.Entity;
-using HotelSelect.Properties;
-using HotelSelect.Security;
-using HotelSelect.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,9 +14,7 @@ namespace HotelSelect
     {
         public PersonalAccount()
         {
-            User user= UserSession.GetCurrentSession().CurrentAuthUser;
             InitializeComponent();
-            this.Name_user.Text = "Здраствуйте " + user.FullName.Surname + " " + user.FullName.Name + " " + user.FullName.Patronymic+"!";
         }
 
         private void SerchHotelButton_Click(object sender, EventArgs e)
@@ -29,12 +23,6 @@ namespace HotelSelect
             this.Hide();
             SerchHote.ShowDialog();
            
-        }
-
-        private void Setting_Click(object sender, EventArgs e)
-        {
-           Setting form = new Setting();
-           form.ShowDialog();
         }
     }
 }

@@ -120,11 +120,6 @@
     <Compile Include="Views\Controls\HotelPanel.Designer.cs">
       <DependentUpon>HotelPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Setting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Setting.Designer.cs">
-      <DependentUpon>Setting.cs</DependentUpon>
     <Compile Include="Views\HOTEL_CARD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,10 +216,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\DataBase\" />
+    <Folder Include="DataBase\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\84971495226962.jpg" />
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
