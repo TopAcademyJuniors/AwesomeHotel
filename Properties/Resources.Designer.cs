@@ -63,6 +63,26 @@ namespace HotelSelect.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1612755328_4_p_fon_goluboi_shesterenki_5 {
+            get {
+                object obj = ResourceManager.GetObject("1612755328_4-p-fon-goluboi-shesterenki-5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1635857120_55_na_dache_pro_p_dom_u_morya_krasivie_s_basseinom_foto_60 {
+            get {
+                object obj = ResourceManager.GetObject("1635857120_55-na-dache-pro-p-dom-u-morya-krasivie-s-basseinom-foto-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Creat_Hotel {
             get {
                 object obj = ResourceManager.GetObject("Creat Hotel", resourceCulture);
@@ -93,9 +113,9 @@ namespace HotelSelect.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap support_image {
+        internal static System.Drawing.Bitmap RezHotel {
             get {
-                object obj = ResourceManager.GetObject("support_image", resourceCulture);
+                object obj = ResourceManager.GetObject("RezHotel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +123,9 @@ namespace HotelSelect.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RezHotel {
+        internal static System.Drawing.Bitmap support_image {
             get {
-                object obj = ResourceManager.GetObject("RezHotel", resourceCulture);
+                object obj = ResourceManager.GetObject("support_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

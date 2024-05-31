@@ -108,6 +108,12 @@
     <Compile Include="DataAccessObject\Interfaces\IHotelDAO.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Proxy\UserDaoProxy.cs" />
+    <Compile Include="Views\Controls\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Support.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <EmbeddedResource Include="Views\Controls\HotelPanel.resx">
       <DependentUpon>HotelPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HotelAdd.resx">
       <DependentUpon>HotelAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +228,8 @@
     <Folder Include="DataBase\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1635857120_55-na-dache-pro-p-dom-u-morya-krasivie-s-basseinom-foto-60.jpg" />
+    <None Include="Resources\1612755328_4-p-fon-goluboi-shesterenki-5.jpg" />
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
