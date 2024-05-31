@@ -18,7 +18,7 @@ namespace HotelSelect.DataAccessObject.Implementations
             throw new NotImplementedException();
         }
 
-        public Hotel SearchHotel()
+        public List <Hotel> SearchHotel(Hotel hotel)
         {
             throw new NotImplementedException();
         }

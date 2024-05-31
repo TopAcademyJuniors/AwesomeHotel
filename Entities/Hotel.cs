@@ -11,7 +11,7 @@ namespace HotelSelect.Entities
     {
         public Hotel() { }
 
-        public Hotel(string name, int countr_id, int sity_id, int stars, string adress, string phone_number, string descript)
+        public Hotel(string name, int countr_id, int sity_id, int stars, string adress, string phone_number, string descript, int numberRooms)
         {
             Name = name;
             CountryId = countr_id;
@@ -20,6 +20,7 @@ namespace HotelSelect.Entities
             Adress = adress;
             PhoneNumber = phone_number;
             Description = descript;
+            NumberRooms = numberRooms;
         }
         public long Id { get; set; }
         public int CountryId { get; set; }
@@ -29,7 +30,6 @@ namespace HotelSelect.Entities
         public int Stars { get; set; }
         public string Adress { get; set; }
         public string PhoneNumber { get; set; }
+        public int NumberRooms { get; set; }
     }
-
-
 }

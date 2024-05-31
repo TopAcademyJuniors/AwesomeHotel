@@ -91,7 +91,7 @@ namespace HotelSelect
                 }
 
                 Hotel hotel = new Hotel(textBox1.Text, id_con, id_city,
-                    Convert.ToInt32(textBox2.Text), textBox5.Text, textBox6.Text, textBox7.Text);
+                    Convert.ToInt32(textBox2.Text), textBox5.Text, textBox6.Text, textBox7.Text, Convert.ToInt32(NumberRooms.Text));
 
                 textBox1.Text = "";
                 textBox2.Text = "";
