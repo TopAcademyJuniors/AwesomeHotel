@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelSelect.Entity;
+using HotelSelect.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,13 +61,14 @@ namespace HotelSelect.Views
 
         private void HOTEL_CARD_Load(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile(@"C:\Users\Я\Downloads\166.jpg");
-        }
+            
+
+                }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PictureBox pictureBox = this.Controls.OfType<PictureBox>().FirstOrDefault();
-            pictureBox.ImageLocation = @"C:\Users\Я\Downloads\166.jpg";
+          
         }
     }
 }
