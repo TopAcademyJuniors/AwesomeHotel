@@ -108,10 +108,10 @@
     <Compile Include="DataAccessObject\Interfaces\IHotelDAO.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Proxy\UserDaoProxy.cs" />
-    <Compile Include="Views\Controls\OptionsForm.cs">
+    <Compile Include="Views\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Controls\OptionsForm.Designer.cs">
+    <Compile Include="Views\OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Support.cs">
@@ -179,7 +179,7 @@
     <EmbeddedResource Include="Views\Controls\HotelPanel.resx">
       <DependentUpon>HotelPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Controls\OptionsForm.resx">
+    <EmbeddedResource Include="Views\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HotelAdd.resx">

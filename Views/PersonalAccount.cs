@@ -34,6 +34,7 @@ namespace HotelSelect
         {
             OptionsForm form = new OptionsForm();
             form.ShowDialog();
+
         }
     }
 }
