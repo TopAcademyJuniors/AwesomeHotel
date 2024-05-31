@@ -1,6 +1,5 @@
 ﻿using HotelSelect.Dao.repository;
 using HotelSelect.Entities;
-using HotelSelect.Entity;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;

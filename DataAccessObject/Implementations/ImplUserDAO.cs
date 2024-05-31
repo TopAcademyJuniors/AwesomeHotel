@@ -4,8 +4,6 @@ using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using HotelSelect.Dao.repository;
-using System.Data;
-using System.Runtime.InteropServices;
 
 
 namespace HotelSelect.Dao.impl
@@ -73,7 +71,6 @@ namespace HotelSelect.Dao.impl
                 SqlCommand sqlCommandFindUser = new SqlCommand(sqlQueryFindUser, sqlConnection);
 
                 sqlCommandFindUser.Parameters.Add("@login", System.Data.SqlDbType.VarChar).Value = user.Login;
-              //  sqlCommandFindUser.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = user.Password;
 
                 SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
 

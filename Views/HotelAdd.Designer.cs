@@ -45,6 +45,8 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NumberRooms = new System.Windows.Forms.TextBox();
+            this.NumberRoomsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -250,11 +252,29 @@
             this.textBox2.Size = new System.Drawing.Size(132, 32);
             this.textBox2.TabIndex = 25;
             // 
+            // NumberRooms
+            // 
+            this.NumberRooms.Location = new System.Drawing.Point(371, 74);
+            this.NumberRooms.Name = "NumberRooms";
+            this.NumberRooms.Size = new System.Drawing.Size(100, 20);
+            this.NumberRooms.TabIndex = 26;
+            // 
+            // NumberRoomsLabel
+            // 
+            this.NumberRoomsLabel.AutoSize = true;
+            this.NumberRoomsLabel.Location = new System.Drawing.Point(477, 77);
+            this.NumberRoomsLabel.Name = "NumberRoomsLabel";
+            this.NumberRoomsLabel.Size = new System.Drawing.Size(106, 13);
+            this.NumberRoomsLabel.TabIndex = 27;
+            this.NumberRoomsLabel.Text = "Количество комнат";
+            // 
             // HotelAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 431);
+            this.Controls.Add(this.NumberRoomsLabel);
+            this.Controls.Add(this.NumberRooms);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox7);
@@ -300,5 +320,7 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NumberRooms;
+        private System.Windows.Forms.Label NumberRoomsLabel;
     }
 }
