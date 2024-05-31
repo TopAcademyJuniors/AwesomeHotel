@@ -9,7 +9,7 @@ namespace HotelSelect.DataAccessObject.Interfaces
 {
     internal interface IRezervHotelDAO
     {
-        List<Hotel> SearchHotel(Hotel hotel);
         void RezervHotel(Hotel hotel);
+        List<Hotel> SearchHotel(Hotel hotel);
     }
 }

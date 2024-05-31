@@ -10,7 +10,7 @@ namespace HotelSelect.Security
 
         public bool AuthUser(User user)
         {
-            User tryAuthUser = implUserDAO.FindUserByLoginAndPassword(user);
+            User tryAuthUser = implUserDAO.FindUserByLogin(user);
 
             if (tryAuthUser != null) {
                 UserSession.StartSession(tryAuthUser);

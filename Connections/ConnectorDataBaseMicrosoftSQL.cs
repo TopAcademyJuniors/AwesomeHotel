@@ -1,10 +1,10 @@
 ﻿using System.Data.SqlClient;
 
-namespace HotelSelect.Dao.repository
-{
-    internal class ConnectorDataBaseMicrosoftSQL
-    {
+namespace HotelSelect.Dao.repository {
+    internal class ConnectorDataBaseMicrosoftSQL {
+
         private static ConnectorDataBaseMicrosoftSQL instance;
+
         public SqlConnection SqlConnection { get; private set; }
 
         private ConnectorDataBaseMicrosoftSQL()
@@ -13,8 +13,8 @@ namespace HotelSelect.Dao.repository
                                            "Integrated Security=true; TrustServerCertificate=true;");
         }
 
-        public static ConnectorDataBaseMicrosoftSQL StartConnection()
-        {
+        public static ConnectorDataBaseMicrosoftSQL StartConnection() {
+
             if (instance == null) {
                 instance = new ConnectorDataBaseMicrosoftSQL();
             }
@@ -22,13 +22,11 @@ namespace HotelSelect.Dao.repository
             return instance;
         }
 
-        public static void EndConnection()
-        {
+        public static void EndConnection() {
             instance = null;
         }
 
-        public static ConnectorDataBaseMicrosoftSQL GetConnection()
-        {
+        public static ConnectorDataBaseMicrosoftSQL GetConnection() {
             return instance;
         }
     }

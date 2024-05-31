@@ -4,69 +4,47 @@ using HotelSelect.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HotelSelect.DataAccessObject.Implementations
-{
-    public class ImplCityDao : ICityDAO
-    {
+namespace HotelSelect.DataAccessObject.Implementations {
+    public class ImplCityDao : ICityDAO {
 
-        private SqlConnection _conn;
+        private SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
 
-        public ImplCityDao() {
-
-            _conn = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
-        }
-
-
-        List<City> ICityDAO.GetAllCitiesByCountryId(string country)
-        {
+        List<City> ICityDAO.GetAllCitiesByCountryId(string country) { // В качестве аргумента принимаем объект country класса Country в папке Entities 
+                                                                      // Должно выглядеть вот так: List<City> ICityDAO.GetAllCitiesByCountryId(Сountry country)
             try
-            {
-                _conn.Open();
-                string sqlCountries = " SELECT Cities.name FROM Cities_countries " +
-                    "join Cities on Cities_countries.country_id = " +
-                    "(select id from Countries where Countries.name = @Country);";
+            {          
+                sqlConnection.Open();
 
-                SqlCommand sql = new SqlCommand(sqlCountries, _conn);
+                string sqlCountries = "SELECT Cities.name FROM Cities_countries " +
+                                      "JOIN Cities on Cities_countries.country_id = " +
+                                      "(select id from Countries where Countries.name = @Country);";
+
+                SqlCommand sql = new SqlCommand(sqlCountries, sqlConnection);
 
                 sql.Parameters.Add("@Country", System.Data.SqlDbType.VarChar).Value = country;
+
                 SqlDataReader sqlDataReader = sql.ExecuteReader();
 
-                if (sqlDataReader.HasRows)
-                {
-                    List<City> result = new List<City>();
-
-                    while (sqlDataReader.Read())
-                    {
-                        result.Add(new City()
-                        {
-
-                           
-                            Name = (string)sqlDataReader.GetValue(0)
-
-                        });
-                    }
-
-                    return result;
+                if (!sqlDataReader.HasRows) {
+                    return null;
                 }
 
+                List<City> result = new List<City>();
 
+                while (sqlDataReader.Read()) {
+
+                    result.Add(new City() {
+                        Name = (string)sqlDataReader.GetValue(0)
+                    });
+                }
+
+                return result;
+            }
+            catch (Exception E) {
                 return null;
-
-
             }
-            catch (Exception E)
-            {
-                return null;
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            finally { sqlConnection.Close(); }
         }
     }
 }

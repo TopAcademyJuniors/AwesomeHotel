@@ -4,22 +4,17 @@ using HotelSelect.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HotelSelect.DataAccessObject.Implementations
-{
-    internal class ImplRezervHotelDAO : IRezervHotelDAO
-    {
+namespace HotelSelect.DataAccessObject.Implementations {
+    internal class ImplRezervHotelDAO : IRezervHotelDAO {
+
         SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
-        public void RezervHotel(Hotel hotel)
-        {
+
+        public void RezervHotel(Hotel hotel) {
             throw new NotImplementedException();
         }
 
-        public List <Hotel> SearchHotel(Hotel hotel)
-        {
+        public List <Hotel> SearchHotel(Hotel hotel) {
             throw new NotImplementedException();
         }
     }

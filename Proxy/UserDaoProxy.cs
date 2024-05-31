@@ -28,7 +28,7 @@ namespace HotelSelect.Proxy
         public async Task<User> FindUserByLoginAndPassword(User user)
         {
             User u = null;
-            await Task.Run(async () => u = userDAO.FindUserByLoginAndPassword(user));
+            await Task.Run(async () => u = userDAO.FindUserByLogin(user));
             return u;
 
         }
