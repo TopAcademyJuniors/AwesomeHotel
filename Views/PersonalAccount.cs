@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelSelect.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,13 @@ namespace HotelSelect
             this.Hide();
             SerchHote.ShowDialog();
            
+        }
+
+        private void SupportButton_Click(object sender, EventArgs e)
+        {
+            Support supportForm = new Support();
+            this.Hide();
+            supportForm.ShowDialog();
         }
     }
 }
