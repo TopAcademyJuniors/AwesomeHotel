@@ -69,6 +69,7 @@ namespace HotelSelect.DataAccessObject.Implementations {
                 }
 
                 return findedHotel;
+
             }
             catch (Exception e) {
                 MessageBox.Show(e.ToString());

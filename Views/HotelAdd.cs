@@ -154,5 +154,185 @@ namespace HotelSelect
         private void label8_Click(object sender, EventArgs e) {}
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) {}
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Название отеля")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = SystemColors.WindowText;
+                textBox1.BackColor = SystemColors.Window;
+            }
+            
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBox1.Text))
+            {
+
+                textBox1.Text = "Название отеля";
+                textBox1.ForeColor = SystemColors.Window;
+                textBox1.BackColor = SystemColors.WindowFrame;
+                
+            }
+
+        }
+
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "id_страны")
+            {
+                comboBox1.Text = "";
+                comboBox1.ForeColor = SystemColors.WindowText;
+                comboBox1.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+
+                comboBox1.Text = "id_страны";
+                comboBox1.ForeColor = SystemColors.Window;
+                comboBox1.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+        private void comboBox2_Enter(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "id_города")
+            {
+                comboBox2.Text = "";
+                comboBox2.ForeColor = SystemColors.WindowText;
+                comboBox2.BackColor = SystemColors.Window;
+            }
+            
+        }
+
+        private void comboBox2_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(comboBox2.Text))
+            {
+
+                comboBox2.Text = "id_города";
+                comboBox2.ForeColor = SystemColors.Window;
+                comboBox2.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "Количество звезд")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = SystemColors.WindowText;
+                textBox2.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBox2.Text))
+            {
+
+                textBox2.Text = "Количество звезд";
+                textBox2.ForeColor = SystemColors.Window;
+                textBox2.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "Адрес")
+            {
+                textBox5.Text = "";
+                textBox5.ForeColor = SystemColors.WindowText;
+                textBox5.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBox5.Text))
+            {
+
+                textBox5.Text = "Адрес";
+                textBox5.ForeColor = SystemColors.Window;
+                textBox5.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+       
+
+        private void textBox6_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "Номер телефона")
+            {
+                textBox6.Text = "";
+                textBox6.ForeColor = SystemColors.WindowText;
+                textBox6.BackColor = SystemColors.Window;
+            }
+        } 
+        private void textBox6_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBox6.Text))
+            {
+
+                textBox6.Text = "Номер телефона";
+                textBox6.ForeColor = SystemColors.Window;
+                textBox6.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+        private void textBox7_Enter(object sender, EventArgs e)
+        {
+            if (textBox7.Text == "Описание")
+            {
+                textBox7.Text = "";
+                textBox7.ForeColor = SystemColors.WindowText;
+                textBox7.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void textBox7_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(textBox7.Text))
+            {
+
+                textBox7.Text = "Описание";
+                textBox7.ForeColor = SystemColors.Window;
+                textBox7.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
+
+        private void NumberRooms_Enter(object sender, EventArgs e)
+        {
+            if (NumberRooms.Text == "Количество номеров")
+            {
+                NumberRooms.Text = "";
+                NumberRooms.ForeColor = SystemColors.WindowText;
+                NumberRooms.BackColor = SystemColors.Window;
+            }
+        }
+
+        private void NumberRooms_Leave(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(NumberRooms.Text))
+            {
+
+                NumberRooms.Text = "Количество номеров";
+                NumberRooms.ForeColor = SystemColors.Window;
+                NumberRooms.BackColor = SystemColors.WindowFrame;
+
+            }
+        }
     }
 }
