@@ -1,17 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelSelect.Entities;
 using System.Data.SqlClient;
 using HotelSelect.Dao.repository;
-using HotelSelect.Entity;
-
 
 namespace HotelSelect
 {
@@ -109,7 +102,6 @@ namespace HotelSelect
                 textBox5.BackColor = Color.Red;
                 textBox6.BackColor = Color.Red;
             }
-            
         }
 
         private void label2_Click(object sender, EventArgs e) {}

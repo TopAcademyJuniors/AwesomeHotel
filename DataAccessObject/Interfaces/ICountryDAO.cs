@@ -1,17 +1,9 @@
 ﻿using HotelSelect.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HotelSelect.DataAccessObject.Interfaces
-{
-    interface ICountryDAO
-    {
-        Country GetCountryById(long id);
-
+namespace HotelSelect.DataAccessObject.Interfaces {
+    internal interface ICountryDAO {
         List<Country> GetAllCountries();
-    }
+        Country GetCountryById(long id);// В качестве аргумента передаем объект country класса Country в папке Entities 
+    }                                   // Должно выглядеть вот так: Country GetCountryById(Country country);
 }
