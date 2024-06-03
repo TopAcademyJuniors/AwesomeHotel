@@ -119,8 +119,11 @@ namespace HotelSelect
                 {
                     userMapper.MapUserToJsonAndSave(user);
                 }
+
+                //Todo: изменить реализацию
                 this.Hide();
                 personalAccount.ShowDialog();
+                this.Show();
             }
         }
 
