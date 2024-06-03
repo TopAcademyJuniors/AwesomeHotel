@@ -108,6 +108,12 @@
     <Compile Include="DataAccessObject\Interfaces\IHotelDAO.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Proxy\UserDaoProxy.cs" />
+    <Compile Include="Views\DeleteHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DeleteHotel.Designer.cs">
+      <DependentUpon>DeleteHotel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PodpiskaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\HotelPanel.resx">
       <DependentUpon>HotelPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DeleteHotel.resx">
+      <DependentUpon>DeleteHotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HotelAdd.resx">
       <DependentUpon>HotelAdd.cs</DependentUpon>
