@@ -10,8 +10,9 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
         private SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
 
-        List<City> ICityDAO.GetAllCitiesByCountryId(string country) { // В качестве аргумента принимаем объект country класса Country в папке Entities 
-                                                                      // Должно выглядеть вот так: List<City> ICityDAO.GetAllCitiesByCountryId(Сountry country)
+        List<City> ICityDAO.GetAllCitiesByCountryId(Country country)
+        { // В качестве аргумента принимаем объект country класса Country в папке Entities 
+          // Должно выглядеть вот так: List<City> ICityDAO.GetAllCitiesByCountryId(Сountry country)
             try
             {          
                 sqlConnection.Open();
@@ -22,7 +23,7 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
                 SqlCommand sql = new SqlCommand(sqlCountries, sqlConnection);
 
-                sql.Parameters.Add("@Country", System.Data.SqlDbType.VarChar).Value = country;
+                sql.Parameters.Add("@Country", System.Data.SqlDbType.VarChar).Value = country.Name;
 
                 SqlDataReader sqlDataReader = sql.ExecuteReader();
 
