@@ -8,6 +8,9 @@ namespace HotelSelect.Entities
 {
     internal class City
     {
+        public City()
+        {
+        }
 
         public int Id { get; set; }
         public string Name { get; set; }    
