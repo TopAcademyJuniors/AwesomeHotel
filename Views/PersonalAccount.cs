@@ -14,14 +14,21 @@ namespace HotelSelect
 {
     public partial class PersonalAccount : Form
     {
+
+
         public PersonalAccount()
         {
             InitializeComponent();
 
             User user = UserSession.GetCurrentSession().CurrentAuthUser;
-            if (user.Id == 3) // Изменить на роль.
+
+            foreach (var item in user.Role)
             {
-                buttonAddHotel.Enabled = true;
+                if (item.Name == "ADMIN") // Изменить на роль.
+                {
+                    buttonAddHotel.Enabled = true;
+                }
+               
             }
         }
 

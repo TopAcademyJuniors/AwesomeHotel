@@ -4,11 +4,16 @@ using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using HotelSelect.Dao.repository;
+using HotelSelect.DataAccessObject.Implementations;
+using HotelSelect.Entities;
+using System.Collections.Generic;
 
 namespace HotelSelect.Dao.impl {
     internal class ImplUserDAO : IUserDAO {
 
         private SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
+
+        private IRoleUserDAO roleUserDAO = new ImplIRoleUser();
 
         public void SaveUser(User user) {
 
@@ -36,6 +41,10 @@ namespace HotelSelect.Dao.impl {
                 sqlCommandSaveUser.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value =        user.Email;
 
                 sqlCommandSaveUser.ExecuteNonQuery();
+                sqlConnection.Close();
+
+                roleUserDAO.setUserRole(user);
+
             }
             catch (Exception e)
             {
@@ -60,6 +69,7 @@ namespace HotelSelect.Dao.impl {
                 if (!sqlDataReader.HasRows) {
                    return null; 
                 }
+    
 
                 User findedUser = new User();
 
@@ -77,6 +87,14 @@ namespace HotelSelect.Dao.impl {
                     findedUser.Password =    (string)sqlDataReader.GetValue(8);
                     findedUser.PhoneNumber = (string)sqlDataReader.GetValue(9);
                     findedUser.Email =       (string)sqlDataReader.GetValue(10);
+                }
+                sqlConnection.Close();
+
+                List<Role> roles = roleUserDAO.GetRolesForUserByUserId(findedUser);
+
+                if(roles.Count > 0)
+                {
+                    findedUser.Role = roles;
                 }
 
                 if (!BCrypt.Net.BCrypt.EnhancedVerify(user.Password, findedUser.Password)) {
