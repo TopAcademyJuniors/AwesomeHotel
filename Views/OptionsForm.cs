@@ -34,20 +34,29 @@ namespace HotelSelect.Views.Controls
             User user = UserSession.GetCurrentSession().CurrentAuthUser;
             ImplUserDAO save = new ImplUserDAO();
             User updateUser = new User();
+
             
+
             updateUser.Id = user.Id;
-            updateUser.Login = user.Login;
+            updateUser.Password= this.password_new.Text;
+            updateUser.Login = this.login.Text;
             updateUser.FullName = new FullName 
             {
-                Surname = user.FullName.Surname,
-                Name = user.FullName.Name,
-                Patronymic = user.FullName.Patronymic
+                Surname = this.surname.Text,
+                Name = this.name.Text,
+                Patronymic = this.patronymic.Text
             };
-            
+            updateUser.Email = this.email.Text;
 
+            //if (save.FindUserByPassword(user) == null)
+            //{
+            //    save.Chenge_user(updateUser);
+            //}
 
-
-            //save.Chenge_user( updateUser);
+            //else
+            //{
+            //    MessageBox.Show("пароль неверный");
+            //}
         }
     }
 }
