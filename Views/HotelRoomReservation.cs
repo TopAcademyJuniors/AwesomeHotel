@@ -3,6 +3,7 @@ using HotelSelect.DataAccessObject.Implementations;
 using HotelSelect.DataAccessObject.Interfaces;
 using HotelSelect.Entities;
 using HotelSelect.Entity;
+using HotelSelect.Views.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace HotelSelect
     {
         private ICountryDAO countryDAO;
         private ICityDAO cityDAO;
+        private IHotelDAO hotelDAO;
 
         public HotelRoomReservation()
         {
@@ -28,6 +30,8 @@ namespace HotelSelect
 
             countryDAO = new ImplCountryDAO();
             cityDAO = new ImplCityDao();
+            hotelDAO = new ImplHotelDAO();
+
 
             List<Country> countries = countryDAO.GetAllCountries();
 
@@ -36,6 +40,9 @@ namespace HotelSelect
                 ComBoxCountry.Items.Add(item.Name);
             }
 
+            
+
+
             //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
             //sqlConnection.Open();
 
@@ -43,11 +50,11 @@ namespace HotelSelect
 
             //SqlCommand sqlCommandFindCountries = new SqlCommand(sqlQueryCountries, sqlConnection);
             //SqlDataReader sqlDataReader = sqlCommandFindCountries.ExecuteReader();
-            
+
             //while (sqlDataReader.Read())
             //{
             //    ComBoxCountry.Items.Add((string)sqlDataReader.GetValue(1));
-                
+
             //}
             //sqlConnection.Close();
 
@@ -177,9 +184,30 @@ namespace HotelSelect
         }
         private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
+
         }
 
+        private void buttonSearh_Click(object sender, EventArgs e)
+        {
 
-       
+            //List<Hotel> hotelSearch = hotelDAO.SearchHotel(new City { Name = ComBoxCountry.Text });
+
+            //if (hotelSearch.Count > 0)
+            //{
+            //    foreach (var item in hotelSearch)
+            //    {
+            //        HotelPanel hotelPanel = new HotelPanel(hotelSearch);
+            //        flowLayoutPanel1.Controls.Add(hotelPanel);
+            //    }
+                
+            //}
+            //else
+            //{
+                
+            //}
+            
+        }
     }
 }
