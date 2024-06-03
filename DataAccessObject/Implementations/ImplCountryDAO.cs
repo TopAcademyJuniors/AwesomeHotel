@@ -43,7 +43,7 @@ namespace HotelSelect.DataAccessObject.Implementations {
             finally { sqlConnection.Close(); }
         }
 
-        public Country GetCountryById(long id) {// В качестве аргумента принимаем объект country класса Country в папке Entities 
+        public Country GetCountryById(Country id) {// В качестве аргумента принимаем объект country класса Country в папке Entities 
             throw new NotImplementedException();// Должно выглядеть вот так:  public Country GetCountryById(Country country)
         }
     }
