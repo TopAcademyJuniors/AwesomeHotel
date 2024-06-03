@@ -32,8 +32,7 @@ namespace HotelSelect
 
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            AuthForm aut = new AuthForm ();
-            aut.ShowDialog();
+            Application.Exit();
         }
     }
 }
