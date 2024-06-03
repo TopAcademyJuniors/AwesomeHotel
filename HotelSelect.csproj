@@ -228,6 +228,8 @@
     <Folder Include="DataBase\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\166.jpg" />
+    <Content Include="Resources\Images\166.jpg" />
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
     <Content Include="Resources\Images\not-visible.png" />
