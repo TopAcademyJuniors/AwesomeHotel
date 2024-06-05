@@ -1,5 +1,8 @@
-﻿using HotelSelect.Entity;
+
+using HotelSelect.Views;
+using HotelSelect.Entity;
 using HotelSelect.Security;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +43,11 @@ namespace HotelSelect
            
         }
 
+        private void SupportButton_Click(object sender, EventArgs e)
+        {
+            Support supportForm = new Support();
+            this.Hide();
+            supportForm.ShowDialog();
         private void buttonAddHotel_Click(object sender, EventArgs e)
         {
             HotelAdd hotelAdd = new HotelAdd ();
