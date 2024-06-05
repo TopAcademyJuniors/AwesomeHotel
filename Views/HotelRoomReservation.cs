@@ -35,7 +35,14 @@ namespace HotelSelect
 
             foreach (var item in countries)
             {
-                ComBoxCountry.Items.Add(item);
+                ComBoxCountry.Items.Add(item.Name);
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                Hotel h = new Hotel();
+                h.Name = "template " + i.ToString();
+                flowLayoutPanel1.Controls.Add(new HotelPanel(h));
             }
 
             //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;

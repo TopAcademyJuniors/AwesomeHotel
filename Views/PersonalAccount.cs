@@ -48,9 +48,11 @@ namespace HotelSelect
             Support supportForm = new Support();
             this.Hide();
             supportForm.ShowDialog();
+
+        }
         private void buttonAddHotel_Click(object sender, EventArgs e)
         {
-            HotelAdd hotelAdd = new HotelAdd ();
+            HotelAdd hotelAdd = new HotelAdd();
             this.Hide();
             hotelAdd.ShowDialog();
         }
