@@ -146,26 +146,27 @@ namespace HotelSelect
                 textBoxPriceBefore.Text = "Цена до";
                 textBoxPriceBefore.ForeColor = SystemColors.GrayText;
                 textBoxPriceBefore.BackColor = SystemColors.ScrollBar;
-            
-        }
 
-        private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if(ComBoxCountry.SelectedItem != null)
-            {
-                List<City> cities = cityDAO.GetAllCitiesByCountryId((Country)ComBoxCountry.SelectedItem);
-
-                foreach (var item in cities)
-                {
-                    ComBoxCity.Items.Add(item.Name);
-                }
             }
-        }
 
-        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e){}
+            //private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
+            //{
+            //    if(ComBoxCountry.SelectedItem != null)
+            //    {
+            //        List<City> cities = cityDAO.GetAllCitiesByCountryId((Country)ComBoxCountry.SelectedItem);
 
-        private void buttonSearh_Click(object sender, EventArgs e)
-        {
+            //        foreach (var item in cities)
+            //        {
+            //            ComBoxCity.Items.Add(item.Name);
+            //        }
+            //    }
+            //}
+
+            //private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e){}
+
+            //private void buttonSearh_Click(object sender, EventArgs e)
+            //{
+            //}
         }
     }
 }

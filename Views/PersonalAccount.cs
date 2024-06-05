@@ -30,9 +30,13 @@ namespace HotelSelect {
         }
 
 
-        private void buttonAddHotel_Click(object sender, EventArgs e) {
-            HotelAdd hotelAdd = new HotelAdd ();
+        private void buttonAddHotel_Click(object sender, EventArgs e)
+        {
+            HotelAdd hotelAdd = new HotelAdd();
+            this.Hide();
+            hotelAdd.ShowDialog();
 
+        }
         private void SupportButton_Click(object sender, EventArgs e)
         {
             Support supportForm = new Support();
@@ -40,14 +44,9 @@ namespace HotelSelect {
             supportForm.ShowDialog();
 
         }
-        private void buttonAddHotel_Click(object sender, EventArgs e)
-        {
-            HotelAdd hotelAdd = new HotelAdd();
-            this.Hide();
-            hotelAdd.ShowDialog();
-        }
 
-        private void DeleteHotel_Click(object sender, EventArgs e) {
+        private void DeleteHotel_Click(object sender, EventArgs e)
+        {
             DeleteHotel deleteHotel = new DeleteHotel();
             this.Hide();
             deleteHotel.ShowDialog();
