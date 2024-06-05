@@ -44,21 +44,6 @@ namespace HotelSelect
                 h.Name = "template " + i.ToString();
                 flowLayoutPanel1.Controls.Add(new HotelPanel(h));
             }
-
-            //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
-            //sqlConnection.Open();
-
-            //string sqlQueryCountries = "SELECT * FROM Countries";
-
-            //SqlCommand sqlCommandFindCountries = new SqlCommand(sqlQueryCountries, sqlConnection);
-            //SqlDataReader sqlDataReader = sqlCommandFindCountries.ExecuteReader();
-
-            //while (sqlDataReader.Read())
-            //{
-            //    ComBoxCountry.Items.Add((string)sqlDataReader.GetValue(1));
-
-            //}
-            //sqlConnection.Close();
         }
 
         private void ComBoxCountry_Enter(object sender, EventArgs e)
@@ -181,21 +166,6 @@ namespace HotelSelect
 
         private void buttonSearh_Click(object sender, EventArgs e)
         {
-            //List<Hotel> hotelSearch = hotelDAO.SearchHotel(new City { Name = ComBoxCountry.Text });
-
-            //if (hotelSearch.Count > 0)
-            //{
-            //    foreach (var item in hotelSearch)
-            //    {
-            //        HotelPanel hotelPanel = new HotelPanel(hotelSearch);
-            //        flowLayoutPanel1.Controls.Add(hotelPanel);
-            //    }
-                
-            //}
-            //else
-            //{
-                
-            //}    
         }
     }
 }
