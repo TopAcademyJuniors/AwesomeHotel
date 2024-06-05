@@ -146,7 +146,7 @@ namespace HotelSelect
                 textBoxPriceBefore.Text = "Цена до";
                 textBoxPriceBefore.ForeColor = SystemColors.GrayText;
                 textBoxPriceBefore.BackColor = SystemColors.ScrollBar;
-            }
+            
         }
 
         private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)

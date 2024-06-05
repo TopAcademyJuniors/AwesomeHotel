@@ -127,6 +127,7 @@
             this.Delete.TabIndex = 3;
             this.Delete.Text = "Удаление отеля";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // DeleteHotel
             // 
