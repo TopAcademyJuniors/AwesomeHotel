@@ -30,9 +30,8 @@
         {
             this.SerchHotelButton = new System.Windows.Forms.Button();
             this.buttonAddHotel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteHotel = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // SerchHotelButton
@@ -56,14 +55,15 @@
             this.buttonAddHotel.UseVisualStyleBackColor = true;
             this.buttonAddHotel.Click += new System.EventHandler(this.buttonAddHotel_Click);
             // 
-            // button1
+            // DeleteHotel
             // 
-            this.button1.Location = new System.Drawing.Point(281, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Удаление отеля";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DeleteHotel.Location = new System.Drawing.Point(281, 20);
+            this.DeleteHotel.Name = "DeleteHotel";
+            this.DeleteHotel.Size = new System.Drawing.Size(108, 41);
+            this.DeleteHotel.TabIndex = 2;
+            this.DeleteHotel.Text = "Удаление отеля";
+            this.DeleteHotel.UseVisualStyleBackColor = true;
+            this.DeleteHotel.Click += new System.EventHandler(this.DeleteHotel_Click);
             // 
             // button2
             // 
@@ -74,21 +74,13 @@
             this.button2.Text = "Редактирование отеля";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(471, 139);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 4;
-            // 
             // PersonalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.DeleteHotel);
             this.Controls.Add(this.buttonAddHotel);
             this.Controls.Add(this.SerchHotelButton);
             this.Name = "PersonalAccount";
@@ -102,8 +94,7 @@
 
         private System.Windows.Forms.Button SerchHotelButton;
         private System.Windows.Forms.Button buttonAddHotel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeleteHotel;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel1;
     }
 }

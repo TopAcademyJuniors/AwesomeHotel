@@ -121,7 +121,6 @@
             this.buttonSearh.TabIndex = 32;
             this.buttonSearh.Text = "Поиск номеров";
             this.buttonSearh.UseVisualStyleBackColor = false;
-            this.buttonSearh.Click += new System.EventHandler(this.buttonSearh_Click);
             // 
             // labelPriceBofore
             // 
@@ -239,8 +238,6 @@
             this.ComBoxCountry.Size = new System.Drawing.Size(228, 33);
             this.ComBoxCountry.TabIndex = 20;
             this.ComBoxCountry.Text = "Страна";
-            this.ComBoxCountry.SelectedIndexChanged += new System.EventHandler(this.ComBoxCountry_SelectedIndexChanged);
-            this.ComBoxCountry.SelectedValueChanged += new System.EventHandler(this.ComBoxCountry_SelectedValueChanged);
             this.ComBoxCountry.Enter += new System.EventHandler(this.ComBoxCountry_Enter);
             this.ComBoxCountry.Leave += new System.EventHandler(this.ComBoxCountry_Leave);
             // 

@@ -2,7 +2,6 @@
 using HotelSelect.Entity;
 using System;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using HotelSelect.Dao.repository;
 using HotelSelect.DataAccessObject.Implementations;
 using HotelSelect.Entities;
