@@ -1,4 +1,4 @@
-﻿namespace HotelSelect
+namespace HotelSelect
 {
     partial class PersonalAccount
     {
@@ -29,14 +29,20 @@
         private void InitializeComponent()
         {
             this.SerchHotelButton = new System.Windows.Forms.Button();
+
+            this.SupportButton = new System.Windows.Forms.Button();
+
             this.buttonAddHotel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.SuspendLayout();
             // 
             // SerchHotelButton
             // 
+
+            this.SerchHotelButton.Location = new System.Drawing.Point(12, 12);
             this.SerchHotelButton.Location = new System.Drawing.Point(28, 20);
             this.SerchHotelButton.Name = "SerchHotelButton";
             this.SerchHotelButton.Size = new System.Drawing.Size(97, 42);
@@ -45,6 +51,16 @@
             this.SerchHotelButton.UseVisualStyleBackColor = true;
             this.SerchHotelButton.Click += new System.EventHandler(this.SerchHotelButton_Click);
             // 
+            // SupportButton
+            // 
+            this.SupportButton.Location = new System.Drawing.Point(685, 395);
+            this.SupportButton.Name = "SupportButton";
+            this.SupportButton.Size = new System.Drawing.Size(103, 43);
+            this.SupportButton.TabIndex = 1;
+            this.SupportButton.Text = "Помогите мне!";
+            this.SupportButton.UseVisualStyleBackColor = true;
+            this.SupportButton.Click += new System.EventHandler(this.SupportButton_Click);
+
             // buttonAddHotel
             // 
             this.buttonAddHotel.Enabled = false;
@@ -80,16 +96,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 4;
+
             // 
             // PersonalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+
+            this.Controls.Add(this.SupportButton);
+
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonAddHotel);
+
             this.Controls.Add(this.SerchHotelButton);
             this.Name = "PersonalAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -101,9 +122,13 @@
         #endregion
 
         private System.Windows.Forms.Button SerchHotelButton;
+
+        private System.Windows.Forms.Button SupportButton;
+
         private System.Windows.Forms.Button buttonAddHotel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
+
     }
 }
