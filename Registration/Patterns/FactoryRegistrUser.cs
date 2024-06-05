@@ -3,12 +3,10 @@ using HotelSelect.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace HotelSelect.Patterns
-{
-    internal class FactoryRegistrUser
-    {
-        public void CreateFactory(string text, User user)
-        {
+namespace HotelSelect.Patterns {
+    internal class FactoryRegistrUser {
+        public void CreateFactory(string text, User user) {
+
             if (text.Contains(".com") || text.Contains(".ru")) {
                 user.Email = VerificationsUserForRegistr.CheckEmailUser(text);
                 user.PhoneNumber = "";

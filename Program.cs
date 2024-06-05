@@ -32,7 +32,7 @@ namespace HotelSelect
 
 
             await Task.Run(() => {
-                user = implUserDAO.FindUserByLoginAndPassword(user);
+                user = implUserDAO.FindUserByLogin(user);
                
 
             });

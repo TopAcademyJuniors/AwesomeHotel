@@ -1,14 +1,5 @@
-﻿using PhoneNumbers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelSelect.Entities
-{
-    internal class Hotel
-    {
+﻿namespace HotelSelect.Entities {
+    internal class Hotel {
         public Hotel() { }
 
         public Hotel(string name, int countr_id, int sity_id, int stars, string adress, string phone_number, string descript, int numberRooms)
@@ -22,6 +13,7 @@ namespace HotelSelect.Entities
             Description = descript;
             NumberRooms = numberRooms;
         }
+
         public long Id { get; set; }
         public int CountryId { get; set; }
         public long CityId { get; set; }

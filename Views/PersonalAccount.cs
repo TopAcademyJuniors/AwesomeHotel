@@ -1,4 +1,8 @@
-﻿using HotelSelect.Views;
+
+using HotelSelect.Views;
+using HotelSelect.Entity;
+using HotelSelect.Security;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +17,22 @@ namespace HotelSelect
 {
     public partial class PersonalAccount : Form
     {
+
+
         public PersonalAccount()
         {
             InitializeComponent();
+
+            User user = UserSession.GetCurrentSession().CurrentAuthUser;
+
+            foreach (var item in user.Role)
+            {
+                if (item.Name == "ADMIN") // Изменить на роль.
+                {
+                    buttonAddHotel.Enabled = true;
+                }
+               
+            }
         }
 
         private void SerchHotelButton_Click(object sender, EventArgs e)
@@ -31,6 +48,11 @@ namespace HotelSelect
             Support supportForm = new Support();
             this.Hide();
             supportForm.ShowDialog();
+        private void buttonAddHotel_Click(object sender, EventArgs e)
+        {
+            HotelAdd hotelAdd = new HotelAdd ();
+            this.Hide();
+            hotelAdd.ShowDialog();
         }
     }
 }

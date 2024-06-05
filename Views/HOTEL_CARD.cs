@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelSelect.Entity;
+using HotelSelect.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,7 @@ namespace HotelSelect.Views
         {
             InitializeComponent();
         }
-
+        public object imageLocation { get; private set; }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -59,7 +61,14 @@ namespace HotelSelect.Views
 
         private void HOTEL_CARD_Load(object sender, EventArgs e)
         {
+            
 
+                }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = this.Controls.OfType<PictureBox>().FirstOrDefault();
+          
         }
     }
 }

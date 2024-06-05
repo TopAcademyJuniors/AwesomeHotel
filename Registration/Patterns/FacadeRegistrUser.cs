@@ -3,29 +3,23 @@ using HotelSelect.Dao.inreface;
 using HotelSelect.Dao.service;
 using HotelSelect.Entity;
 
-namespace HotelSelect.Patterns
-{
-    internal class FacadeRegistrUser
-    {
-        public User RegistrationFacade(string text, User user)
-        {
+namespace HotelSelect.Patterns {
+    internal class FacadeRegistrUser {
+        public User RegistrationFacade(string text, User user) {
+
             FactoryRegistrUser factoryRegistrUser = new FactoryRegistrUser();
             factoryRegistrUser.CreateFactory(text, user);
 
             return user;
         }
 
-        public void RegistrationUser(User user)
-        {
+        public void RegistrationUser(User user) {
             IUserDAO implUserDAO = new ImplUserDAO();
-
             implUserDAO.SaveUser(user);
         }
 
-        public bool CheckExistUser(User user)
-        {
+        public bool CheckExistUser(User user) {
             VerificationsUserForRegistr userService = new VerificationsUserForRegistr();
-
             return userService.CheckExistUser(user);   
         }
     }
