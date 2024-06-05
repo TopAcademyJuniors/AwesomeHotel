@@ -15,7 +15,7 @@ namespace HotelSelect.Views {
 
             List<Hotel> hotels = new List<Hotel>();
 
-            dataGridViewHotels.DataSource = hotelDAO.;
+            dataGridViewHotels.DataSource = hotelDAO.SearchHotelsByCountry();
         }
 
         private void LoadHotels() {
@@ -24,7 +24,7 @@ namespace HotelSelect.Views {
 
         private void Delete_Click(object sender, EventArgs e) {
 
-            Hotel hotel = dataGridViewHotels();
+            Hotel hotel = dataGridViewHotels().SelectItem();
 
             hotelDAO.DeleteHotel(hotel);
         }
