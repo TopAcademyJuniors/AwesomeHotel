@@ -30,15 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Support));
             this.Message = new System.Windows.Forms.TextBox();
-            this.buttonFAQ_1 = new System.Windows.Forms.Button();
             this.answer = new System.Windows.Forms.TextBox();
-            this.buttonFAQ_2 = new System.Windows.Forms.Button();
-            this.buttonFAQ_3 = new System.Windows.Forms.Button();
-            this.buttonFAQ_4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button_message = new System.Windows.Forms.Button();
             this.Сhat = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Question_comboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,59 +46,19 @@
             this.Message.Size = new System.Drawing.Size(187, 20);
             this.Message.TabIndex = 0;
             // 
-            // buttonFAQ_1
-            // 
-            this.buttonFAQ_1.Location = new System.Drawing.Point(488, 53);
-            this.buttonFAQ_1.Name = "buttonFAQ_1";
-            this.buttonFAQ_1.Size = new System.Drawing.Size(300, 23);
-            this.buttonFAQ_1.TabIndex = 1;
-            this.buttonFAQ_1.Text = "Как забронировать номер?";
-            this.buttonFAQ_1.UseVisualStyleBackColor = true;
-            this.buttonFAQ_1.Click += new System.EventHandler(this.buttonFAQ_1_Click);
-            // 
             // answer
             // 
-            this.answer.Location = new System.Drawing.Point(488, 258);
+            this.answer.Location = new System.Drawing.Point(485, 171);
             this.answer.Multiline = true;
             this.answer.Name = "answer";
             this.answer.ReadOnly = true;
-            this.answer.Size = new System.Drawing.Size(302, 128);
+            this.answer.Size = new System.Drawing.Size(300, 128);
             this.answer.TabIndex = 2;
-            // 
-            // buttonFAQ_2
-            // 
-            this.buttonFAQ_2.Location = new System.Drawing.Point(488, 82);
-            this.buttonFAQ_2.Name = "buttonFAQ_2";
-            this.buttonFAQ_2.Size = new System.Drawing.Size(300, 23);
-            this.buttonFAQ_2.TabIndex = 3;
-            this.buttonFAQ_2.Text = "Как отменить бронирование?";
-            this.buttonFAQ_2.UseVisualStyleBackColor = true;
-            this.buttonFAQ_2.Click += new System.EventHandler(this.buttonFAQ_2_Click);
-            // 
-            // buttonFAQ_3
-            // 
-            this.buttonFAQ_3.Location = new System.Drawing.Point(488, 111);
-            this.buttonFAQ_3.Name = "buttonFAQ_3";
-            this.buttonFAQ_3.Size = new System.Drawing.Size(300, 23);
-            this.buttonFAQ_3.TabIndex = 4;
-            this.buttonFAQ_3.Text = "Сколько денег вернётся при отмене бронирования?";
-            this.buttonFAQ_3.UseVisualStyleBackColor = true;
-            this.buttonFAQ_3.Click += new System.EventHandler(this.buttonFAQ_3_Click);
-            // 
-            // buttonFAQ_4
-            // 
-            this.buttonFAQ_4.Location = new System.Drawing.Point(488, 140);
-            this.buttonFAQ_4.Name = "buttonFAQ_4";
-            this.buttonFAQ_4.Size = new System.Drawing.Size(300, 23);
-            this.buttonFAQ_4.TabIndex = 5;
-            this.buttonFAQ_4.Text = "Как передать информацию в отель? ";
-            this.buttonFAQ_4.UseVisualStyleBackColor = true;
-            this.buttonFAQ_4.Click += new System.EventHandler(this.buttonFAQ_4_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(623, 28);
+            this.label1.Location = new System.Drawing.Point(620, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 6;
@@ -137,19 +94,25 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // Question_comboBox
+            // 
+            this.Question_comboBox.FormattingEnabled = true;
+            this.Question_comboBox.Location = new System.Drawing.Point(485, 90);
+            this.Question_comboBox.Name = "Question_comboBox";
+            this.Question_comboBox.Size = new System.Drawing.Size(300, 21);
+            this.Question_comboBox.TabIndex = 12;
+            this.Question_comboBox.SelectedIndexChanged += new System.EventHandler(this.Question_comboBox_SelectedIndexChanged);
+            // 
             // Support
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Question_comboBox);
             this.Controls.Add(this.Сhat);
             this.Controls.Add(this.button_message);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonFAQ_4);
-            this.Controls.Add(this.buttonFAQ_3);
-            this.Controls.Add(this.buttonFAQ_2);
             this.Controls.Add(this.answer);
-            this.Controls.Add(this.buttonFAQ_1);
             this.Controls.Add(this.Message);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Support";
@@ -163,14 +126,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox Message;
-        private System.Windows.Forms.Button buttonFAQ_1;
         private System.Windows.Forms.TextBox answer;
-        private System.Windows.Forms.Button buttonFAQ_2;
-        private System.Windows.Forms.Button buttonFAQ_3;
-        private System.Windows.Forms.Button buttonFAQ_4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_message;
         private System.Windows.Forms.TextBox Сhat;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox Question_comboBox;
     }
 }
