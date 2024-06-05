@@ -2,9 +2,6 @@
 using HotelSelect.Dao.inreface;
 using HotelSelect.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HotelSelect.Proxy
@@ -18,10 +15,10 @@ namespace HotelSelect.Proxy
 
         }
 
-        public async Task<User> FindUserById(long id)
-        {
+        public async Task<User> FindUserById(User user) {
             User u = null;
-            await Task.Run(async () => u = userDAO.FindUserById(id));
+            await Task.Run(async () => u = userDAO.FindUserById(user));
+
             return u;
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelSelect.Entities;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,6 +11,16 @@ namespace HotelSelect.Views
         public DeleteHotel()
         {
             InitializeComponent();
+
+            List<Hotel> hotels = new List<Hotel>();
+
+            foreach (Hotel hotel in hotels) {
+                hotels.Add(hotel);
+            }
+
+
+
+
         }
 
         private void comboBoxCountry_Enter(object sender, EventArgs e)

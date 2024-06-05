@@ -41,14 +41,13 @@ namespace HotelSelect.Dao.impl {
                 sqlCommandSaveUser.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value =        user.Email;
 
                 sqlCommandSaveUser.ExecuteNonQuery();
+
                 sqlConnection.Close();
 
                 roleUserDAO.setUserRole(user);
-
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
             finally { sqlConnection.Close(); }
         }
@@ -67,10 +66,9 @@ namespace HotelSelect.Dao.impl {
                 SqlDataReader sqlDataReader = sqlCommandFindUser.ExecuteReader();
 
                 if (!sqlDataReader.HasRows) {
-                   return null; 
+                    throw new Exception("Not has rows");
                 }
     
-
                 User findedUser = new User();
 
                 while (sqlDataReader.Read()) {
@@ -88,30 +86,29 @@ namespace HotelSelect.Dao.impl {
                     findedUser.PhoneNumber = (string)sqlDataReader.GetValue(9);
                     findedUser.Email =       (string)sqlDataReader.GetValue(10);
                 }
+
                 sqlConnection.Close();
 
                 List<Role> roles = roleUserDAO.GetRolesForUserByUserId(findedUser);
 
-                if(roles.Count > 0)
-                {
+                if(roles.Count > 0) {
                     findedUser.Role = roles;
                 }
 
                 if (!BCrypt.Net.BCrypt.EnhancedVerify(user.Password, findedUser.Password)) {
-                    return null;
+                    throw new Exception("Not BCrypt");
                 }
                 
                 return findedUser;
             }
-            catch(Exception e) {
-                MessageBox.Show(e.ToString());
-                return null;
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
             }
             finally { sqlConnection.Close(); }
         }
 
-        public User FindUserById(long id) {// В качестве аргумента принимаем объект user класса User в папке Entities
-                                           // Должно выглядеть вот так:  public User FindUserById(User user) 
+        public User FindUserById(User user) {
+                                           
             try {
                 sqlConnection.Open();
 
@@ -119,12 +116,12 @@ namespace HotelSelect.Dao.impl {
 
                 SqlCommand sqlCommandFindUserById = new SqlCommand(sqlQueryFindUserById, sqlConnection);
 
-                sqlCommandFindUserById.Parameters.Add("@id", System.Data.SqlDbType.BigInt).Value = id;
+                sqlCommandFindUserById.Parameters.Add("@id", System.Data.SqlDbType.BigInt).Value = user.Id;
 
                 SqlDataReader sqlDataReader = sqlCommandFindUserById.ExecuteReader();
 
                 if (!sqlDataReader.HasRows) {
-                    return null;
+                    throw new Exception("Not has rows");
                 }
 
                 User findedUser = new User();
@@ -147,9 +144,8 @@ namespace HotelSelect.Dao.impl {
 
                 return findedUser;
             }
-            catch (Exception e) {
-                MessageBox.Show(e.ToString());
-                return null;
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
             finally { sqlConnection.Close(); }
         }

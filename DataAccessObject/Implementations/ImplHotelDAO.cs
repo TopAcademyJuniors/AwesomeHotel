@@ -18,6 +18,7 @@ namespace HotelSelect.DataAccessObject.Implementations {
                                            "VALUES (@country_id, @city_id, @name, @description, @stars, @address, @phone_number)";
 
                 SqlCommand sqlCommandSaveHotel = new SqlCommand(sqlQuerySaveHotel, sqlConnection);
+
                 sqlCommandSaveHotel.Parameters.Add("@country_id", System.Data.SqlDbType.Int).Value =       hotel.CountryId;
                 sqlCommandSaveHotel.Parameters.Add("@city_id", System.Data.SqlDbType.BigInt).Value =       hotel.CityId;
                 sqlCommandSaveHotel.Parameters.Add("@name", System.Data.SqlDbType.VarChar).Value =         hotel.Name;
@@ -28,8 +29,8 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
                 sqlCommandSaveHotel.ExecuteNonQuery();
             }
-            catch (Exception e) {
-                MessageBox.Show(e.Message);
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
             }
             finally { sqlConnection.Close(); }
         }
@@ -52,7 +53,7 @@ namespace HotelSelect.DataAccessObject.Implementations {
                 SqlDataReader sqlDataReader = sqlCommandFindHotel.ExecuteReader();
 
                 if (!sqlDataReader.HasRows) {
-                    return null;
+                    throw new Exception("Not has rows");
                 }
 
                 Hotel findedHotel = new Hotel();
@@ -71,9 +72,8 @@ namespace HotelSelect.DataAccessObject.Implementations {
                 return findedHotel;
 
             }
-            catch (Exception e) {
-                MessageBox.Show(e.ToString());
-                return null;
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
             }
             finally { sqlConnection.Close(); }
         }

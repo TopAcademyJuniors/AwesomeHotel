@@ -10,11 +10,9 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
         private SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
 
-        List<City> ICityDAO.GetAllCitiesByCountryId(Country country)
-        { // В качестве аргумента принимаем объект country класса Country в папке Entities 
-          // Должно выглядеть вот так: List<City> ICityDAO.GetAllCitiesByCountryId(Сountry country)
-            try
-            {          
+        List<City> ICityDAO.GetAllCitiesByCountryId(Country country) {
+
+            try {          
                 sqlConnection.Open();
 
                 string sqlCountries = "SELECT Cities.name FROM Cities_countries " +
@@ -28,22 +26,20 @@ namespace HotelSelect.DataAccessObject.Implementations {
                 SqlDataReader sqlDataReader = sql.ExecuteReader();
 
                 if (!sqlDataReader.HasRows) {
-                    return null;
+                    throw new Exception("Not has rows");
                 }
 
                 List<City> result = new List<City>();
 
                 while (sqlDataReader.Read()) {
 
-                    result.Add(new City() {
-                        Name = (string)sqlDataReader.GetValue(0)
-                    });
+                    result.Add(new City() { Name = (string)sqlDataReader.GetValue(0) });
                 }
 
                 return result;
             }
-            catch (Exception E) {
-                return null;
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
             }
             finally { sqlConnection.Close(); }
         }

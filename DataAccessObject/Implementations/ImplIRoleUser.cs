@@ -5,9 +5,6 @@ using HotelSelect.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelSelect.DataAccessObject.Implementations
 {
@@ -18,64 +15,59 @@ namespace HotelSelect.DataAccessObject.Implementations
             sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
         }
 
-        public List<Role> GetRolesForUserByUserId(User user)
-        {
+        public List<Role> GetRolesForUserByUserId(User user) {
+
             try {
                 sqlConnection.Open();
 
                 string sqlCommand = "SELECT Roles.id, Roles.name FROM User_Roles " +
-                    "join Roles on Roles.id = User_Roles.role_id " +
-                    "WHERE User_Roles.user_id = @user_id";
+                                    "JOIN Roles on Roles.id = User_Roles.role_id " +
+                                    "WHERE User_Roles.user_id = @user_id";
 
                 SqlCommand sqlCommandGetRoles = new SqlCommand(sqlCommand, sqlConnection);
+
                 sqlCommandGetRoles.Parameters.Add("@user_id", System.Data.SqlDbType.BigInt).Value = user.Id;
+
                 SqlDataReader reader = sqlCommandGetRoles.ExecuteReader(); 
 
                 List<Role> userRoles = new List<Role>();
-                if(reader.HasRows)
-                {
-                    while(reader.Read())
-                    {
-                        Role role = new Role();
-                        role.Id = (int)reader.GetValue(0);
-                        role.Name = (string)reader.GetValue(1);
-                        userRoles.Add(role);
-                    }
 
-                   
+                if(!reader.HasRows) {
+                    throw new Exception("Not has rows");
+                }
+
+                while (reader.Read()) {
+                    Role role = new Role();
+                    role.Id = (int)reader.GetValue(0);
+                    role.Name = (string)reader.GetValue(1);
+                    userRoles.Add(role);
                 }
 
                 return userRoles;
             }
-            catch(Exception e) {
-                throw new Exception(e.Message);
-
-            }finally { 
-                sqlConnection.Close();
+            catch(Exception ex) {
+                throw new Exception(ex.Message);
             }
+            finally { sqlConnection.Close(); }
         }
 
-        public void setUserRole(User user)
-        {
-            try
-            {
+        public void setUserRole(User user) {
+            
+            try {
                 sqlConnection.Open();
 
                 string sqlCommand = "INSERT INTO User_Roles (user_id, role_id) VALUES ((SELECT id FROM users WHERE users.name = @user_login),1);";
 
                 SqlCommand sqlCommandGetRoles = new SqlCommand(sqlCommand, sqlConnection);
+
                 sqlCommandGetRoles.Parameters.Add("@user_login", System.Data.SqlDbType.VarChar).Value = user.Login;
+
                 sqlCommandGetRoles.ExecuteNonQuery();
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
-            finally
-            {
-                sqlConnection.Close();
-            }
+            finally { sqlConnection.Close(); }
         }
     }
 }

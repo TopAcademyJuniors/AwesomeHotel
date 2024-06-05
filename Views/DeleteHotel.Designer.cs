@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewHotels = new System.Windows.Forms.DataGridView();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,13 +39,13 @@
             this.comboBoxCountry = new System.Windows.Forms.ComboBox();
             this.comboBoxCity = new System.Windows.Forms.ComboBox();
             this.Delete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHotels)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewHotels
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewHotels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHotels.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Country,
             this.City,
             this.NameHotel,
@@ -53,10 +53,10 @@
             this.Address,
             this.PhoneNumber,
             this.CountRooms});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 293);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewHotels.Location = new System.Drawing.Point(12, 105);
+            this.dataGridViewHotels.Name = "dataGridViewHotels";
+            this.dataGridViewHotels.Size = new System.Drawing.Size(776, 293);
+            this.dataGridViewHotels.TabIndex = 0;
             // 
             // Country
             // 
@@ -136,17 +136,17 @@
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.comboBoxCity);
             this.Controls.Add(this.comboBoxCountry);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewHotels);
             this.Name = "DeleteHotel";
             this.Text = "DeleteHotel";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHotels)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewHotels;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn ComboBoxCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameHotel;

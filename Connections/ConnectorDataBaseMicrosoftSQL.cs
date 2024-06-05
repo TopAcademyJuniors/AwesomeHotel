@@ -7,8 +7,7 @@ namespace HotelSelect.Dao.repository {
 
         public SqlConnection SqlConnection { get; private set; }
 
-        private ConnectorDataBaseMicrosoftSQL()
-        {
+        private ConnectorDataBaseMicrosoftSQL() {
             SqlConnection = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=HotelReservation;" +
                                            "Integrated Security=true; TrustServerCertificate=true;");
         }

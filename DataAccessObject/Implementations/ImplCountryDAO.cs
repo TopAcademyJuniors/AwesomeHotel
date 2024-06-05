@@ -21,8 +21,8 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
                 SqlDataReader sqlDataReader = sql.ExecuteReader();
 
-                if (sqlDataReader.HasRows) {
-                    return null;
+                if (!sqlDataReader.HasRows) {
+                    throw new Exception("Not has rows");
                 }
 
                 List<Country> result = new List<Country>();
@@ -37,14 +37,14 @@ namespace HotelSelect.DataAccessObject.Implementations {
 
                 return result;
             } 
-            catch (Exception E) {
-                return null;
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
             }
             finally { sqlConnection.Close(); }
         }
 
-        public Country GetCountryById(Country id) {// В качестве аргумента принимаем объект country класса Country в папке Entities 
-            throw new NotImplementedException();// Должно выглядеть вот так:  public Country GetCountryById(Country country)
+        public Country GetCountryById(Country country) {
+            throw new NotImplementedException();
         }
     }
 }
