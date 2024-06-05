@@ -1,6 +1,10 @@
-﻿using HotelSelect.Entity;
-using HotelSelect.Security;
+
 using HotelSelect.Views;
+using HotelSelect.Entity;
+using HotelSelect.Security;
+
+using HotelSelect.Views;
+
 using System;
 using System.Windows.Forms;
 
@@ -25,8 +29,20 @@ namespace HotelSelect {
             SerchHote.ShowDialog();
         }
 
+
         private void buttonAddHotel_Click(object sender, EventArgs e) {
             HotelAdd hotelAdd = new HotelAdd ();
+
+        private void SupportButton_Click(object sender, EventArgs e)
+        {
+            Support supportForm = new Support();
+            this.Hide();
+            supportForm.ShowDialog();
+
+        }
+        private void buttonAddHotel_Click(object sender, EventArgs e)
+        {
+            HotelAdd hotelAdd = new HotelAdd();
             this.Hide();
             hotelAdd.ShowDialog();
         }

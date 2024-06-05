@@ -93,6 +93,16 @@ namespace HotelSelect.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IRS_IT_Systems_to_Get_a_Facelift {
+            get {
+                object obj = ResourceManager.GetObject("IRS-IT-Systems-to-Get-a-Facelift", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap not_visible {
             get {
                 object obj = ResourceManager.GetObject("not-visible", resourceCulture);
