@@ -2,17 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace HotelSelect.Entity
-{
-    public struct FullName
-    {
+namespace HotelSelect.Entity {
+    public struct FullName {
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
     }
 
-    public class User
-    {
+    public class User {
         public long Id { get; set; }
         public int CountryId { get; set; }
         public long CityId { get; set; }

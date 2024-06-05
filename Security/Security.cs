@@ -2,14 +2,12 @@
 using HotelSelect.Dao.inreface;
 using HotelSelect.Entity;
 
-namespace HotelSelect.Security
-{
-    public class Security
-    {
+namespace HotelSelect.Security {
+    public class Security {
+
         private IUserDAO implUserDAO = new ImplUserDAO();
 
-        public bool AuthUser(User user)
-        {
+        public bool AuthUser(User user) {
             User tryAuthUser = implUserDAO.FindUserByLogin(user);
 
             if (tryAuthUser != null) {
@@ -21,8 +19,7 @@ namespace HotelSelect.Security
             return false;
         }
 
-        public static void LogOutUser()
-        {
+        public static void LogOutUser() {
             UserSession.EndSession();
         }
     }

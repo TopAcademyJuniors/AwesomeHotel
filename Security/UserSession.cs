@@ -1,19 +1,17 @@
 ﻿using HotelSelect.Entity;
 
-namespace HotelSelect.Security
-{
-    public class UserSession
-    {
+namespace HotelSelect.Security {
+    public class UserSession {
+
         private static UserSession instance;
         public User CurrentAuthUser { get; private set; }
 
-        private UserSession(User user)
-        {
+        private UserSession(User user) {
             CurrentAuthUser = user;
         }
 
-        public static UserSession StartSession(User user)
-        {
+        public static UserSession StartSession(User user) {
+
             if (instance == null) {
                 instance = new UserSession(user);
             }
@@ -21,13 +19,11 @@ namespace HotelSelect.Security
             return instance;
         }
 
-        public static void EndSession()
-        {
+        public static void EndSession() {
             instance = null;
         }
 
-        public static UserSession GetCurrentSession()
-        {
+        public static UserSession GetCurrentSession() {
             return instance;
         }
     }

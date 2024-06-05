@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelSelect.Entities
-{
-    public class Role
-    {
+﻿namespace HotelSelect.Entities {
+    public class Role {
         public int Id { get; set; }
         public string Name { get; set; }
     }
