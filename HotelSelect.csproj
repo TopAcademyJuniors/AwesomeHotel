@@ -181,6 +181,12 @@
     </Compile>
     <Compile Include="Security\Security.cs" />
     <Compile Include="Security\UserSession.cs" />
+    <Compile Include="Views\UpdateHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateHotel.Designer.cs">
+      <DependentUpon>UpdateHotel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +227,9 @@
     <EmbeddedResource Include="Views\Support.resx">
       <DependentUpon>Support.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UpdateHotel.resx">
+      <DependentUpon>UpdateHotel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -243,6 +252,7 @@
     <Content Include="Resources\Images\166.jpg" />
     <Content Include="Resources\Images\Creat Hotel.jpg" />
     <Content Include="Resources\Images\eye-visible.png" />
+    <Content Include="Resources\Images\IRS-IT-Systems-to-Get-a-Facelift.jpg" />
     <Content Include="Resources\Images\not-visible.png" />
     <Content Include="Resources\Images\RezHotel.png" />
     <Content Include="Resources\Images\support_image.jpg" />
