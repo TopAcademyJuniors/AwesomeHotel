@@ -35,23 +35,15 @@ namespace HotelSelect
 
             foreach (var item in countries)
             {
-                ComBoxCountry.Items.Add(item);
+                ComBoxCountry.Items.Add(item.Name);
             }
 
-            //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
-            //sqlConnection.Open();
-
-            //string sqlQueryCountries = "SELECT * FROM Countries";
-
-            //SqlCommand sqlCommandFindCountries = new SqlCommand(sqlQueryCountries, sqlConnection);
-            //SqlDataReader sqlDataReader = sqlCommandFindCountries.ExecuteReader();
-
-            //while (sqlDataReader.Read())
-            //{
-            //    ComBoxCountry.Items.Add((string)sqlDataReader.GetValue(1));
-
-            //}
-            //sqlConnection.Close();
+            for (int i = 0; i < 5; i++)
+            {
+                Hotel h = new Hotel();
+                h.Name = "template " + i.ToString();
+                flowLayoutPanel1.Controls.Add(new HotelPanel(h));
+            }
         }
 
         private void ComBoxCountry_Enter(object sender, EventArgs e)
@@ -154,41 +146,27 @@ namespace HotelSelect
                 textBoxPriceBefore.Text = "Цена до";
                 textBoxPriceBefore.ForeColor = SystemColors.GrayText;
                 textBoxPriceBefore.BackColor = SystemColors.ScrollBar;
+
             }
-        }
 
-        private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if(ComBoxCountry.SelectedItem != null)
-            {
-                List<City> cities = cityDAO.GetAllCitiesByCountryId((Country)ComBoxCountry.SelectedItem);
-
-                foreach (var item in cities)
-                {
-                    ComBoxCity.Items.Add(item.Name);
-                }
-            }
-        }
-
-        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e){}
-
-        private void buttonSearh_Click(object sender, EventArgs e)
-        {
-            //List<Hotel> hotelSearch = hotelDAO.SearchHotel(new City { Name = ComBoxCountry.Text });
-
-            //if (hotelSearch.Count > 0)
+            //private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
             //{
-            //    foreach (var item in hotelSearch)
+            //    if(ComBoxCountry.SelectedItem != null)
             //    {
-            //        HotelPanel hotelPanel = new HotelPanel(hotelSearch);
-            //        flowLayoutPanel1.Controls.Add(hotelPanel);
+            //        List<City> cities = cityDAO.GetAllCitiesByCountryId((Country)ComBoxCountry.SelectedItem);
+
+            //        foreach (var item in cities)
+            //        {
+            //            ComBoxCity.Items.Add(item.Name);
+            //        }
             //    }
-                
             //}
-            //else
+
+            //private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e){}
+
+            //private void buttonSearh_Click(object sender, EventArgs e)
             //{
-                
-            //}    
+            //}
         }
     }
 }

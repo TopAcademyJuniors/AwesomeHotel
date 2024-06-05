@@ -13,11 +13,14 @@ namespace HotelSelect.Views.Controls
 {
     public partial class HotelPanel : UserControl
     {
-        private List<Hotel> hotelSearch;
+      
 
-        public HotelPanel()
+        public HotelPanel(Hotel hotel)
         {
             InitializeComponent();
+            hotelName.Text = hotel.Name;
+            hotelDescription.Text = hotel.Description;
+          
         }
 
         //public HotelPanel(List<Hotel> hotelSearch)

@@ -1,8 +1,8 @@
 ﻿using HotelSelect.Dao.repository;
 using HotelSelect.Entities;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace HotelSelect.DataAccessObject.Implementations {
     internal class ImplHotelDAO : IHotelDAO {
@@ -45,32 +45,118 @@ namespace HotelSelect.DataAccessObject.Implementations {
                 SqlCommand sqlCommandFindHotel = new SqlCommand(sqlQueryFindHotel, sqlConnection);
 
                 sqlCommandFindHotel.Parameters.Add("@country_id", System.Data.SqlDbType.VarChar).Value = hotel.CountryId;
-                sqlCommandFindHotel.Parameters.Add("@city_id", System.Data.SqlDbType.VarChar).Value =    hotel.CityId;
-                sqlCommandFindHotel.Parameters.Add("@name", System.Data.SqlDbType.VarChar).Value =       hotel.Name;
-                sqlCommandFindHotel.Parameters.Add("@stars", System.Data.SqlDbType.VarChar).Value =      hotel.Stars;
-                sqlCommandFindHotel.Parameters.Add("@address", System.Data.SqlDbType.VarChar).Value =    hotel.Adress;
+                sqlCommandFindHotel.Parameters.Add("@city_id", System.Data.SqlDbType.VarChar).Value = hotel.CityId;
+                sqlCommandFindHotel.Parameters.Add("@name", System.Data.SqlDbType.VarChar).Value = hotel.Name;
+                sqlCommandFindHotel.Parameters.Add("@stars", System.Data.SqlDbType.VarChar).Value = hotel.Stars;
+                sqlCommandFindHotel.Parameters.Add("@address", System.Data.SqlDbType.VarChar).Value = hotel.Adress;
 
                 SqlDataReader sqlDataReader = sqlCommandFindHotel.ExecuteReader();
 
-                if (!sqlDataReader.HasRows) {
+                if (!sqlDataReader.HasRows)
+                {
                     throw new Exception("Not has rows");
                 }
 
                 Hotel findedHotel = new Hotel();
 
-                while (sqlDataReader.Read()) {
-                    findedHotel.Id =          (long)sqlDataReader.GetValue(0);
-                    findedHotel.CountryId =   (int)sqlDataReader.GetValue(1);
-                    findedHotel.CityId =      (long)sqlDataReader.GetValue(2);
-                    findedHotel.Name =        (string)sqlDataReader.GetValue(3);
+                while (sqlDataReader.Read())
+                {
+                    findedHotel.Id = (long)sqlDataReader.GetValue(0);
+                    findedHotel.CountryId = (int)sqlDataReader.GetValue(1);
+                    findedHotel.CityId = (long)sqlDataReader.GetValue(2);
+                    findedHotel.Name = (string)sqlDataReader.GetValue(3);
                     findedHotel.Description = (string)sqlDataReader.GetValue(4);
-                    findedHotel.Stars =       (int)sqlDataReader.GetValue(5);
-                    findedHotel.Adress =      (string)sqlDataReader.GetValue(6);
+                    findedHotel.Stars = (int)sqlDataReader.GetValue(5);
+                    findedHotel.Adress = (string)sqlDataReader.GetValue(6);
                     findedHotel.PhoneNumber = (string)sqlDataReader.GetValue(7);
                 }
 
                 return findedHotel;
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Произошла ошибка: " + ex.Message);
+            }
+            finally { sqlConnection.Close(); }
+        }
+
+        public List<Hotel> SearchHotelsByCountry(Country country) {
+
+            try {
+                sqlConnection.Open();
+
+                string sqlQueryFindHotels = "SELECT * FROM Hotel WHERE country_id = @country_id";
+
+                SqlCommand sqlCommandFindHotels = new SqlCommand(sqlQueryFindHotels, sqlConnection);
+
+                sqlCommandFindHotels.Parameters.Add("@country_id", System.Data.SqlDbType.VarChar).Value = country.Id;
+
+                SqlDataReader sqlDataReader = sqlCommandFindHotels.ExecuteReader();
+
+                if (!sqlDataReader.HasRows) {
+                    throw new Exception("Not has rows");
+                }
+
+                List<Hotel> findedHotels = new List<Hotel>();
+
+                while (sqlDataReader.Read()) {
+
+                    findedHotels.Add(new Hotel() {
+                        Id =          (long)sqlDataReader.GetValue(0),
+                        CountryId =   (int)sqlDataReader.GetValue(1),
+                        CityId =      (long)sqlDataReader.GetValue(2),
+                        Name =        (string)sqlDataReader.GetValue(3),
+                        Description = (string)sqlDataReader.GetValue(4),
+                        Stars =       (int)sqlDataReader.GetValue(5),
+                        Adress =      (string)sqlDataReader.GetValue(6),
+                        PhoneNumber = (string)sqlDataReader.GetValue(7)
+                    });
+                }
+
+                return findedHotels;
+            }
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
+            }
+            finally { sqlConnection.Close(); }
+        }
+
+        public List<Hotel> SearchHotelsByCity(City city) {
+
+            try {
+                sqlConnection.Open();
+
+                string sqlQueryFindHotels = "SELECT * FROM Hotel WHERE city_id = @city_id";
+
+                SqlCommand sqlCommandFindHotels = new SqlCommand(sqlQueryFindHotels, sqlConnection);
+
+                sqlCommandFindHotels.Parameters.Add("@city_id", System.Data.SqlDbType.VarChar).Value = city.Id;
+
+                SqlDataReader sqlDataReader = sqlCommandFindHotels.ExecuteReader();
+
+                if (!sqlDataReader.HasRows)
+                {
+                    throw new Exception("Not has rows");
+                }
+
+                List<Hotel> findedHotels = new List<Hotel>();
+
+                while (sqlDataReader.Read()) {
+
+                    findedHotels.Add(new Hotel() {
+                        Id =          (long)sqlDataReader.GetValue(0),
+                        CountryId =   (int)sqlDataReader.GetValue(1),
+                        CityId =      (long)sqlDataReader.GetValue(2),
+                        Name =        (string)sqlDataReader.GetValue(3),
+                        Description = (string)sqlDataReader.GetValue(4),
+                        Stars =       (int)sqlDataReader.GetValue(5),
+                        Adress =      (string)sqlDataReader.GetValue(6),
+                        PhoneNumber = (string)sqlDataReader.GetValue(7)
+                    });
+                }
+
+                return findedHotels;
             }
             catch (Exception ex) {
                 throw new Exception("Произошла ошибка: " + ex.Message);
