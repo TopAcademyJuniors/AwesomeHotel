@@ -48,15 +48,22 @@ namespace HotelSelect.Views.Controls
             };
             updateUser.Email = this.email.Text;
 
-            //if (save.FindUserByPassword(user) == null)
-            //{
-            //    save.Chenge_user(updateUser);
-            //}
+            
+            if (!string.IsNullOrEmpty(this.password_new.Text))
+            {
+                save.Chenge_user(updateUser);
+                MessageBox.Show("данные сохранены");
+                Close();
+            }
 
-            //else
-            //{
-            //    MessageBox.Show("пароль неверный");
-            //}
+            else
+            {
+                MessageBox.Show("пароль неверный");
+            }
         }
+
+       
+
+       
     }
 }

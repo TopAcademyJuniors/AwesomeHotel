@@ -21,6 +21,7 @@ namespace HotelSelect.Security
             return false;
         }
 
+        
         public static void LogOutUser()
         {
             UserSession.EndSession();
