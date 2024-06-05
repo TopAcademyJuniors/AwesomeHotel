@@ -3,6 +3,7 @@ using HotelSelect.DataAccessObject.Implementations;
 using HotelSelect.DataAccessObject.Interfaces;
 using HotelSelect.Entities;
 using HotelSelect.Entity;
+using HotelSelect.Views.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,20 +21,21 @@ namespace HotelSelect
     {
         private ICountryDAO countryDAO;
         private ICityDAO cityDAO;
+        private IHotelDAO hotelDAO;
 
         public HotelRoomReservation()
         {
             InitializeComponent();
 
-
             countryDAO = new ImplCountryDAO();
             cityDAO = new ImplCityDao();
+            hotelDAO = new ImplHotelDAO();
 
             List<Country> countries = countryDAO.GetAllCountries();
 
             foreach (var item in countries)
             {
-                ComBoxCountry.Items.Add(item.Name);
+                ComBoxCountry.Items.Add(item);
             }
 
             //SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
@@ -43,16 +45,13 @@ namespace HotelSelect
 
             //SqlCommand sqlCommandFindCountries = new SqlCommand(sqlQueryCountries, sqlConnection);
             //SqlDataReader sqlDataReader = sqlCommandFindCountries.ExecuteReader();
-            
+
             //while (sqlDataReader.Read())
             //{
             //    ComBoxCountry.Items.Add((string)sqlDataReader.GetValue(1));
-                
+
             //}
             //sqlConnection.Close();
-
-
-
         }
 
         private void ComBoxCountry_Enter(object sender, EventArgs e)
@@ -63,8 +62,6 @@ namespace HotelSelect
                 ComBoxCountry.ForeColor = SystemColors.WindowText;
                 ComBoxCountry.BackColor = SystemColors.Window;
             }
-
-
         }
 
         private void ComBoxCountry_Leave(object sender, EventArgs e)
@@ -77,7 +74,6 @@ namespace HotelSelect
                 ComBoxCountry.BackColor = SystemColors.ScrollBar;
 
             }
-
         }
 
         private void ComBoxCity_Enter(object sender, EventArgs e)
@@ -129,7 +125,6 @@ namespace HotelSelect
                 textBoxPriceFrom.ForeColor = SystemColors.WindowText;
                 textBoxPriceFrom.BackColor = SystemColors.Window;
             }
-
         }
 
         private void textBoxPriceFrom_Leave(object sender, EventArgs e)
@@ -140,7 +135,6 @@ namespace HotelSelect
                 textBoxPriceFrom.ForeColor = SystemColors.GrayText;
                 textBoxPriceFrom.BackColor = SystemColors.ScrollBar;
             }
-
         }
 
         private void textBoxPriceBefore_Enter(object sender, EventArgs e)
@@ -151,7 +145,6 @@ namespace HotelSelect
                 textBoxPriceBefore.ForeColor = SystemColors.WindowText;
                 textBoxPriceBefore.BackColor = SystemColors.Window;
             }
-
         }
 
         private void textBoxPriceBefore_Leave(object sender, EventArgs e)
@@ -162,24 +155,40 @@ namespace HotelSelect
                 textBoxPriceBefore.ForeColor = SystemColors.GrayText;
                 textBoxPriceBefore.BackColor = SystemColors.ScrollBar;
             }
-
         }
 
         private void ComBoxCountry_SelectedValueChanged(object sender, EventArgs e)
         {
-            List < City > cities = cityDAO.GetAllCitiesByCountryId(ComBoxCountry.Text);
-
-            foreach (var item in cities)
+            if(ComBoxCountry.SelectedItem != null)
             {
-                ComBoxCity.Items.Add(item.Name);
+                List<City> cities = cityDAO.GetAllCitiesByCountryId((Country)ComBoxCountry.SelectedItem);
+
+                foreach (var item in cities)
+                {
+                    ComBoxCity.Items.Add(item.Name);
+                }
             }
-
         }
-        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void ComBoxCountry_SelectedIndexChanged(object sender, EventArgs e){}
+
+        private void buttonSearh_Click(object sender, EventArgs e)
         {
+            //List<Hotel> hotelSearch = hotelDAO.SearchHotel(new City { Name = ComBoxCountry.Text });
+
+            //if (hotelSearch.Count > 0)
+            //{
+            //    foreach (var item in hotelSearch)
+            //    {
+            //        HotelPanel hotelPanel = new HotelPanel(hotelSearch);
+            //        flowLayoutPanel1.Controls.Add(hotelPanel);
+            //    }
+                
+            //}
+            //else
+            //{
+                
+            //}    
         }
-
-
-       
     }
 }

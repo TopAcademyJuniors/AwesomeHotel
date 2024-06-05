@@ -5,63 +5,55 @@ using PhoneNumbers;
 using System;
 using System.Data.SqlClient;
 
-namespace HotelSelect.Dao.service
-{
-    internal class VerificationsUserForRegistr : IServiceDAO
-    {
-        public static string CheckEmailUser(string emailUser)
-        {
-            if (string.IsNullOrEmpty(emailUser))
-            {
+namespace HotelSelect.Dao.service {
+    internal class VerificationsUserForRegistr : IServiceDAO {
+
+        SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
+
+        public static string CheckEmailUser(string emailUser) {
+
+            if (string.IsNullOrEmpty(emailUser)) {
                 throw new Exception("Email is null of empty");
             }
 
-            if (!emailUser.Contains("@"))
-            {
+            if (!emailUser.Contains("@")) {
                 throw new Exception("Email not Contains @");
             }
 
             return emailUser;
         }
 
-        public static string CheckPhoneNumberUser(string phoneNumber)
-        {
+        public static string CheckPhoneNumberUser(string phoneNumber) {
+
             PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.GetInstance();
 
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
+            if (string.IsNullOrEmpty(phoneNumber)) {
                 throw new ArgumentException("Phone number null or empty", nameof(phoneNumber));
             }
 
-            if (!phoneNumber.StartsWith("+"))
-            {
+            if (!phoneNumber.StartsWith("+")) {
                 phoneNumber = "+" + phoneNumber;
             }
 
-            try
-            {
+            try {
                 PhoneNumber number = phoneNumberUtil.Parse(phoneNumber, null);
+
                 string formattednumber = phoneNumberUtil.Format(number, PhoneNumberFormat.INTERNATIONAL);
 
-                if (!phoneNumberUtil.IsValidNumber(number))
-                {
+                if (!phoneNumberUtil.IsValidNumber(number)) {
                     throw new ArgumentException("Phone number not valid", nameof(phoneNumber));
                 }
 
                 return formattednumber;
             }
-            catch (NumberParseException e)
-            {
+            catch (NumberParseException e) {
                 throw new ArgumentException("Error parsing phone number: " + e.Message);
             }
         }
 
-        public bool CheckExistUser(User user)
-        {
-            SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
+        public bool CheckExistUser(User user) {
 
-            try
-            {
+            try {
                 sqlConnection.Open();
 
                 string sqlQueryCheckExistUser = "SELECT * FROM Users WHERE phone_number = @phoneNumber " +
@@ -77,12 +69,10 @@ namespace HotelSelect.Dao.service
 
                 return count == 0;
             }
-            catch (SqlException e)
-            {
+            catch (SqlException e) {
                 throw new Exception("Произошла ошибка при работе с базой данных: " + e.Message);
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 throw new Exception("Произошла ошибка: " + ex.Message);
             }
             finally { sqlConnection.Close(); }

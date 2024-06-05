@@ -4,69 +4,46 @@ using HotelSelect.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HotelSelect.DataAccessObject.Implementations
-{
-    internal class ImplCountryDAO : ICountryDAO
-    {
-        private SqlConnection _conn;
+namespace HotelSelect.DataAccessObject.Implementations {
+    internal class ImplCountryDAO : ICountryDAO {
 
-        public ImplCountryDAO() {
+        private SqlConnection sqlConnection = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
 
-            _conn = ConnectorDataBaseMicrosoftSQL.StartConnection().SqlConnection;
+        public List<Country> GetAllCountries() {
 
-        }
+            try {
+                sqlConnection.Open();
 
-
-        public List<Country> GetAllCountries()
-        {
-
-            try
-            {
-                _conn.Open();
                 string sqlCountries = "SELECT * FROM Countries";
 
-                SqlCommand sql = new SqlCommand(sqlCountries, _conn);
+                SqlCommand sql = new SqlCommand(sqlCountries, sqlConnection);
+
                 SqlDataReader sqlDataReader = sql.ExecuteReader();
 
-                if (sqlDataReader.HasRows)
-                {
-                    List<Country> result = new List<Country>();
-
-                    while (sqlDataReader.Read())
-                    {
-                        result.Add(new Country()
-                        {
-
-                            Id = (int)sqlDataReader.GetValue(0),
-                            Name = (string)sqlDataReader.GetValue(1)
-
-                        });
-                    }
-
-                    return result;
+                if (!sqlDataReader.HasRows) {
+                    throw new Exception("Not has rows");
                 }
 
+                List<Country> result = new List<Country>();
 
-                return null;
+                while (sqlDataReader.Read()) {
 
-                
-            } catch (Exception E) {
-                return null;
+                    result.Add(new Country() {
+                        Id = (int)sqlDataReader.GetValue(0),
+                        Name = (string)sqlDataReader.GetValue(1)
+                    });
+                }
+
+                return result;
+            } 
+            catch (Exception ex) {
+                throw new Exception("Произошла ошибка: " + ex.Message);
             }
-            finally
-            {
-                _conn.Close();
-            }
-
-         
+            finally { sqlConnection.Close(); }
         }
 
-        public Country GetCountryById(long id)
-        {
+        public Country GetCountryById(Country country) {
             throw new NotImplementedException();
         }
     }
