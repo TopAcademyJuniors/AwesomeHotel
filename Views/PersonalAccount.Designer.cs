@@ -31,6 +31,7 @@
             this.SerchHotelButton = new System.Windows.Forms.Button();
             this.User_name = new System.Windows.Forms.Label();
             this.Options = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SerchHotelButton
@@ -56,7 +57,7 @@
             // 
             // Options
             // 
-            this.Options.Location = new System.Drawing.Point(48, 107);
+            this.Options.Location = new System.Drawing.Point(571, 49);
             this.Options.Name = "Options";
             this.Options.Size = new System.Drawing.Size(81, 44);
             this.Options.TabIndex = 2;
@@ -64,12 +65,23 @@
             this.Options.UseVisualStyleBackColor = true;
             this.Options.Click += new System.EventHandler(this.Options_Click);
             // 
+            // exit_button
+            // 
+            this.exit_button.Location = new System.Drawing.Point(713, 49);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(81, 44);
+            this.exit_button.TabIndex = 3;
+            this.exit_button.Text = "выход";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
             // PersonalAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HotelSelect.Properties.Resources._1635857120_55_na_dache_pro_p_dom_u_morya_krasivie_s_basseinom_foto_60;
             this.ClientSize = new System.Drawing.Size(806, 692);
+            this.Controls.Add(this.exit_button);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.User_name);
             this.Controls.Add(this.SerchHotelButton);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Button SerchHotelButton;
         private System.Windows.Forms.Label User_name;
         private System.Windows.Forms.Button Options;
+        private System.Windows.Forms.Button exit_button;
     }
 }

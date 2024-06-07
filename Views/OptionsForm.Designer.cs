@@ -45,7 +45,7 @@
             // 
             // surname
             // 
-            this.surname.Location = new System.Drawing.Point(114, 146);
+            this.surname.Location = new System.Drawing.Point(140, 88);
             this.surname.Multiline = true;
             this.surname.Name = "surname";
             this.surname.Size = new System.Drawing.Size(141, 27);
@@ -53,7 +53,7 @@
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(114, 179);
+            this.name.Location = new System.Drawing.Point(140, 121);
             this.name.Multiline = true;
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(141, 27);
@@ -61,7 +61,7 @@
             // 
             // patronymic
             // 
-            this.patronymic.Location = new System.Drawing.Point(114, 212);
+            this.patronymic.Location = new System.Drawing.Point(140, 154);
             this.patronymic.Multiline = true;
             this.patronymic.Name = "patronymic";
             this.patronymic.Size = new System.Drawing.Size(141, 27);
@@ -69,7 +69,7 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(114, 245);
+            this.email.Location = new System.Drawing.Point(140, 187);
             this.email.Multiline = true;
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(141, 27);
@@ -77,7 +77,7 @@
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(114, 55);
+            this.login.Location = new System.Drawing.Point(140, 55);
             this.login.Multiline = true;
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(141, 27);
@@ -85,7 +85,7 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(144, 299);
+            this.save.Location = new System.Drawing.Point(166, 358);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             // password_new
             // 
-            this.password_new.Location = new System.Drawing.Point(114, 113);
+            this.password_new.Location = new System.Drawing.Point(140, 325);
             this.password_new.Multiline = true;
             this.password_new.Name = "password_new";
             this.password_new.Size = new System.Drawing.Size(141, 27);
@@ -104,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 69);
+            this.label1.Location = new System.Drawing.Point(52, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 8;
@@ -113,16 +113,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 127);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(30, 311);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(104, 48);
             this.label2.TabIndex = 9;
-            this.label2.Text = "новый пароль";
+            this.label2.Text = "подтвердите\r\nизминения \r\nпаролем";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 160);
+            this.label4.Location = new System.Drawing.Point(52, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 11;
@@ -131,7 +133,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 193);
+            this.label5.Location = new System.Drawing.Point(52, 135);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 12;
@@ -140,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 226);
+            this.label6.Location = new System.Drawing.Point(52, 168);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 13;
@@ -149,7 +151,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 259);
+            this.label7.Location = new System.Drawing.Point(52, 201);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 14;

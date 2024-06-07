@@ -36,5 +36,11 @@ namespace HotelSelect
             form.ShowDialog();
 
         }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            saveAuthSession.Checked
+            Close();
+        }
     }
 }
