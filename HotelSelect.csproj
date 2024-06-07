@@ -227,7 +227,9 @@
     <EmbeddedResource Include="Views\Support.resx">
       <DependentUpon>Support.cs</DependentUpon>
     </EmbeddedResource>
+
     <None Include="DataBase\HotelReservation.bacpac" />
+
     <EmbeddedResource Include="Views\UpdateHotel.resx">
       <DependentUpon>UpdateHotel.cs</DependentUpon>
     </EmbeddedResource>
