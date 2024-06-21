@@ -165,7 +165,35 @@ namespace HotelSelect.DataAccessObject.Implementations {
         }
 
         public void UpdateHotel(Hotel hotel) {
-            throw new NotImplementedException();
+
+            try
+            {
+                sqlConnection.Open();
+
+                //todo: поправить запрос на обновление базы
+
+                string sqlQueryUpdateHotel = "UPDATE Hotel Set country_id = @country_id, city_id = @city_id, name = @name, description = @description, stars = @stars, address = @address, phone_number = @phone_number" +
+                                             "WHERE ???";
+
+                SqlCommand sqlCommandUpdateHotel = new SqlCommand(sqlQueryUpdateHotel, sqlConnection);
+
+                sqlCommandUpdateHotel.Parameters.Add("@country_id", System.Data.SqlDbType.Int).Value = hotel.CountryId;
+                sqlCommandUpdateHotel.Parameters.Add("@city_id", System.Data.SqlDbType.BigInt).Value = hotel.CityId;
+                sqlCommandUpdateHotel.Parameters.Add("@name", System.Data.SqlDbType.VarChar).Value = hotel.Name;
+                sqlCommandUpdateHotel.Parameters.Add("@description", System.Data.SqlDbType.VarChar).Value = hotel.Description;
+                sqlCommandUpdateHotel.Parameters.Add("@stars", System.Data.SqlDbType.Date).Value = hotel.Stars;
+                sqlCommandUpdateHotel.Parameters.Add("@address", System.Data.SqlDbType.VarChar).Value = hotel.Adress;
+                sqlCommandUpdateHotel.Parameters.Add("@phone_number", System.Data.SqlDbType.VarChar).Value = hotel.PhoneNumber;
+
+                sqlCommandUpdateHotel.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
         }
 
         public void DeleteHotel(Hotel hotel) {
